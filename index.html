@@ -2,68 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>制作百度首页</title>
     <style>
-        marquee{
-            color:#666;
-            font:italic bold 30px "";
-        </style>
+        .header{
+            height: 200px;
+        }
+        .content{
+            height: 270px;
+        }
+        .footer{
+            height: 200px;
+        }
+        div{
+            text-align: center;
+        }
+        .logo{
+            height: 150px;
+        }
+        .nav{
+            height: 150px;
+        }
+        input[type=text]{
+            width: 400px;
+            height: 30px;
+        }
+        input[type=submit]{
+            width: 100px;
+            height: 30px;
+        }
+        .search{
+            height: 60px;
+        }
+        .bk{
+            height: 180px;
+        }
+        .aq{
+            height: 100px;
+        }
+        .tg{
+            height: 40px;
+        }
+        body{
+            font-size: 15px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <!--<table bgcolor="black" align="left" width="800" height="200" cellspacing="1">-->
-        <!--<tr bgcolor="white">-->
-            <!--<td rowspan="2" align="center"><img src="maomi.jpeg" alt="你所找的图片不见了" width="250" height="170" align="center">-->
-                <!--</td>-->
-            <!--<td>老师带你一起holdHTML5视频</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr bgcolor="white">-->
-            <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
-            <!--<td width="400" height="100">主讲：胡大大</td>-->
-            <!--<td width="100" height="100"></td>-->
-        <!--</tr>-->
-    <!--</table>-->
-    <marquee behavior="alternate" direction="right">
-        <h2>自制导航小猫咪</h2>
-    </marquee>
-    <br>
-    <table cellspacing="1" bgcolor="black" width="1500" height="500" align="center">
-        <tr bgcolor="white">
-            <td align="center" width="375" height="250">
-                <a href="https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%D0%A1%C3%A8%DF%E4&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=111111"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="百度小猫咪"></a>
-                <p><a href="https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%D0%A1%C3%A8%DF%E4&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=111111">百度小猫咪</a></p>
-            </td>
-            <td align="center" width="375" height="250">
-                <a href="https://www.taobao.com/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="淘宝小猫咪"></a>
-                <p><a href="https://www.taobao.com/">淘宝小猫咪</a></p>
-            </td>
-            <td align="center" width="375" height="250">
-                <a href="https://www.jd.com/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="京东小猫咪"></a>
-                <p><a href="https://www.jd.com/">京东小猫咪</a></p>
-            </td>
-            <td align="center" width="375" height="250">
-                <a href="http://www.dangdang.com/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="当当小猫咪"></a>
-                <p><a href="http://www.dangdang.com/">当当小猫咪</a></p>
-            </td>
-        </tr>
-        <tr bgcolor="white">
-            <td align="center" width="375" height="250">
-                <a href="https://www.sina.com.cn/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="新浪小猫咪"></a>
-                <p><a href="https://www.sina.com.cn/">新浪小猫咪</a></p>
-            </td>
-            <td align="center" width="375" height="250">
-                <a href="https://music.163.com/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="网易云音乐小猫咪"></a>
-                <p><a href="https://music.163.com/">网易云音乐小猫咪</a></p>
-            </td>
-            <td align="center" width="375" height="250">
-                <a href="https://www.google.com.hk/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="谷歌小猫咪"></a>
-                <p><a href="https://www.google.com.hk/">谷歌小猫咪</a></p>
-            </td>
-            <td align="center" width="375" height="250">
-                <a href="https://www.aliyun.com/"><img src="maomi.jpeg" alt="lost!" width="300" height="200" title="阿里小猫咪"></a>
-                <p><a href="https://www.aliyun.com/">阿里小猫咪</a></p>
-            </td>
-        </tr>
-    </table>
+<div class="header" >
+    <div class="logo" ><img src="bdlogo.gif" alt="你所找的图片丢失了"></div>
+    <div class="nav">
+    <a href="#">新 闻</a>
+    <a href="https://tieba.baidu.com/index.html">贴 吧</a>
+    <a href="#">网 页</a>
+    <a href="#">知 道</a>
+    <a href="#">音 乐</a>
+    <a href="#">图 片</a>
+    <a href="#">视 频</a>
+    <a href="https://map.baidu.com/">地 图</a>
+    </div>
+</div>
+<div class="content">
+    <div class="search">
+    <input type="text">
+    <input type="submit" value="百度一下">
+    </div>
+    <div class="bk">
+    <a href="#">百科</a>
+    <a href="#">文库</a>
+    <a href="https://www.hao123.com/">hao123</a>
+    <a href="#">更多>></a>
+    </div>
+    <div>
+    <img src="ic.jpg" alt="你所找的照片已丢失">
+    <a href="#">百度地图带你吃喝玩乐，全心全意为人民服务</a>
+    </div>
+</div>
+<div class="footer">
+    <div class="aq">
+    <a href="#">把百度设为主页</a>
+    <a href="#">安装百度卫士</a>
+    </div>
+    <div class="tg">
+    <a href="">加入百度推广</a> |
+    <a href="">搜索风云榜</a> |
+    <a href="">关于百度</a> |
+    <a href="">About Baidu</a>
+    </div>
+    <div> ©2016 Baidu 使用百度前必读 京ICP证666号</div>
+</div>
 </body>
 </html>
