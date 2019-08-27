@@ -317,6 +317,7 @@
 }
 .guding .guding_two{
     position: fixed;
+    z-index: 996;
     bottom: 0px;
     right: 0px;
 }
