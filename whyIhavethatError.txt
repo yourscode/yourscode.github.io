@@ -1,0 +1,14 @@
+今天和同事在弄github的时候，遇到了点小麻烦，在全球最大的中文网上一搜，果然不出所料，找不到写解决方案，于是自己在stackOverFlower上看了好几篇，总结了一下，终于找到解决方案！报错如下：
+ERROR: Permission to hbxn740150254/BestoneGitHub.git denied to Chenzuohehe.fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists.
+初看知道大概是没有权限，导致不能从远程仓库读取，后来询问才知道我同事的电脑的SSH公钥已经绑定了他自己的GitHub 账号，我就不能再用他的公钥了，具体的请看stackoverflow网友所说的：
+GitHub will use the key as means to identify you when you connect to them via SSH. As such, you cannot have multiple accounts with the same key, as GitHub won’t be able to tell then which of your accounts you want to use.
+上面说的话很清楚，就是你不能有多个账号添加了同一个公钥，一旦那样github就不能区分到底是哪个用户在安全登陆网站，那安全登录就起不到任何效果了，因为你能登进去，我也能登进去，那服务器到底判断是谁登了呢！但是要注意一个账号可以拥有多个公钥，这个是可以允许的！比如，在A电脑和B电脑上的公钥都绑定了同个一个账户Tom，那么两台电脑在终端上输入ssh -T git@github.com最后都会显示
+Hi Tom! You've successfully authenticated, but GitHub does not provide shell access.
+服务器依然会知道这是Tom的第二台电脑在登陆，他是土豪，账号依然很安全！
+
+场景
+下面再举个例子，Tom在公司有个公司账户publicAccount，然后回到家他也有自己创建私人的账号privateAccount，但是他只有一台电脑，意味着一般情况下，他要么用公司账户绑定电脑公钥，要么用家里私人账号绑定，但是不管哪一种绑定，最后都达不到这两个账号访问同一个远程仓库，那么协同开发也就成了泡沫！因为只有一台电脑，如果Tom试图访问没有绑定公钥的账户的时候，就会报错ERROR: Permission to hbxn740150254/BestoneGitHub.git denied to Tom
+
+解决思路
+买台新电脑，获得新公钥，这是最土豪也是最傻的方法
+利用自己唯一的电脑生成多公钥，公钥一多，不就可以想绑定多少个都行了吗，不怕你把它玩坏
