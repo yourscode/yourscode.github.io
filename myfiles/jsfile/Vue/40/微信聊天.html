@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <chat-room></chat-room>
+</div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+
+        Vue.component('chatRoom',{
+            data : function(){
+                return {
+                    list :[]
+                }
+            },
+            methods :{
+                getmsg : function(msg){
+                    this.list.push(msg);
+                    console.log(msg);
+                    
+                }
+            },
+            template : `<div>
+            <ul>
+                <li v-for="item in list">{{item}}</li>
+            </ul>
+            <hr>
+            <my-input uname = "lucy: " @resmsg = "getmsg"></my-input>
+            <my-input uname = "mike: " @resmsg = "getmsg"></my-input>
+            </div>`
+        })
+        Vue.component('my-input',{
+            template : `
+            <div><label>Lucy</label>
+            <input type="text" v-model = "msg">
+            <button @click = "sendmsg">发送</button>
+            </div>
+            `,
+            data(){
+                return {
+                    msg : ''
+                }
+            },
+            props : ["uname"],
+            methods : {
+                sendmsg : function(){
+                    this.$emit('resmsg',this.uname + this.msg);
+                    this.msg = '';
+                }
+            }
+        })
+        const app = new Vue({
+            el : '#app',
+            data :{
+                
+            }
+        })
+    </script>
+</body>
+</html>

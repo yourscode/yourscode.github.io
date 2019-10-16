@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Student(sNaem,sAge) {
+            this.sAge = sAge;
+            this.sName;
+            // this.inr = function (){
+            //     console.log("i am " + this.sName + "i am " + this.sAge);
+            // }    
+        }
+        Student.prototype.inr = function(){
+            console.log("i am " + this.sName + "i am " + this.sAge);
+        }
+        var lilei =  new Student("lilei",11);
+        console.log(lilei);
+        lilei.inr = function(){
+            console.log("test");
+        };
+        lilei.inr();
+    </script>
+</body>
+</html>

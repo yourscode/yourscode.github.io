@@ -1,0 +1,22 @@
+@media screen and (min-width : 992px){
+    body{
+        background-color: royalblue;
+        color: crimson;
+        
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 991px){
+    body{
+        background-color: firebrick;
+        color: teal;
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width : 768px){
+    body{
+        background-color: greenyellow;
+        color: rosybrown;
+        font-style: italic;
+        font-size: 6rem;
+    }
+}

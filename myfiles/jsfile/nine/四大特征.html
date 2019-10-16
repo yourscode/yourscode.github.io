@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var yg = {
+            id: 1001,
+            ename: "lilei",
+            sal : 12000,
+        }
+        (function(){
+            var _age = 25;
+        Object.defineProperties(yg,{
+            age:{
+                get(){
+                    console.log("调用get方法");
+                    return this._age
+                },
+                set(val){
+                    console.log("调用set方法");
+                    if(val >= 18&&val <= 65){
+                        _age = val
+                    }else{
+                        throw new Error("年龄必须在18~65之间");
+                    }
+                },
+                enumerable: true,
+                configurable: false
+            }
+        })
+        yg._age = 12;
+        console.log(yg);
+    })();
+    </script>
+</body>
+</html>

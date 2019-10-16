@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+    </div>
+
+    <template id="cpn1">
+        <div>
+            <h1 :style="val"><<<<<<<大标题>>>>>>></h1>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.component('cpn', {
+            template: '#cpn1',
+            data() {
+                return {
+                    value: 1,
+                    val : ''
+                }
+            },
+
+            mounted() {
+                setInterval(()=>{
+                    this.value = this.value- 0.1;
+                    if(this.value<0){
+                        this.value = 1;
+                    }
+                    this.val = 'opacity : '+this.value
+                },1000)
+            }
+            
+        })
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hh'
+            }
+        })
+    </script>
+</body>
+
+</html>

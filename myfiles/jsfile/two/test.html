@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        var score = 90;
+        function changeScore(num){
+            // num = num + 5;
+            num += 5;
+            // return num;
+            console.log(num);
+        }
+    changeScore(score);
+    console.log(score);
+    </script> -->
+
+    <!-- 创建一个函数avg() 接受一个数组做形参,返回该数组中的所有数值的平均值,要求:在avg() 内创建一个内部函数 sum() 用以计算所有数值的和 -->
+    <!-- <script>
+        function avg(a = []){
+            var sum = 0;
+            for(i = 0 ; i < a.length ; i++){
+                var str = a[i];
+                sum += a[i]; 
+            }
+            var average = sum / a.length;
+            return average;
+        }
+         var value = avg([2,6]);     
+        console.log(value);
+    </script> -->
+<!-- 
+    练习: 1 1 2 3 5 8 13 21 34 55.....
+    已知第一个数和第二个数都是1,通过函数f(n)  来计算数列中第n个数的值f(1) = 1  ; f(2) = 1 ; f(3) = f(1) + f(2);
+                                                                f(n) = f(n - 1) +f(n - 2);
+-->
+    <script>     
+        function f(n){
+        //    return (n==1 || n==2) ? 1 : f(n-1) + f(n-2);
+        // }
+        // console.log(f(6));
+
+        if(n== 1 ||n== 2){
+            return 1;
+        }
+        else{
+            return f(n-1) + f(n-2);
+        }
+        }
+        console.log(f(6));
+    </script>
+</html>

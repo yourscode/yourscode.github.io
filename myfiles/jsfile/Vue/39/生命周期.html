@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<cpn></cpn>
+</div>
+
+<template id="cpn1">
+    <div>{{count}}</div>
+</template>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.component('cpn',{
+            template : '#cpn1',
+            data(){
+                return {
+                    count : 1
+                }
+            },
+            beforeCreate(){
+                console.log("准备初始化");
+            },
+            created(){
+                console.log("初始化完成");
+            },
+            beforeMount(){
+                console.log('准备挂载');
+            },
+            mounted(){
+                console.log('挂载完毕');
+            },
+            brforeUpdate(){
+                console.log('准备更新数据');
+            },
+            updated(){
+                console.log('数据更新完成');
+            },
+            beforeDestroy(){
+                console.log("准备销毁");
+            },
+            destroyed(){
+                console.log("销毁完成");
+            }
+        })
+
+        const app = new Vue({
+            el : '#app',
+            data : {
+                msg : 'hh'
+            }
+        })
+    </script>
+</body>
+</html>

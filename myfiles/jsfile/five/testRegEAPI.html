@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reg = /^\d{6}$/;
+        do{
+        var input = prompt("请输入密码: ");
+            if(!reg.test(input)){
+                alert("密码不正确请重试!");
+            }else{
+                alert("恭喜通过");
+                break;
+            }
+        }while(true);
+        
+        
+        
+        //要求用户反复输入密码  input
+        //如果用户不符合reg要求 
+        //提示从新输入
+        //如果符合提示恭喜通过
+    </script>
+</body>
+</html>

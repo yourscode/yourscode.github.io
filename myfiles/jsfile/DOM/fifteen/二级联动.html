@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>二级联动列表</title>
+    <meta charset="utf-8" />
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <select name="provs">
+        <option>—请选择—</option>
+        <!--0-->
+        <option>北京市</option>
+        <!--1-->
+        <option>天津市</option>
+        <option>河北省</option>
+        //selectedIndex
+    </select>
+    <select name="cities" class="hide"></select>
+    <script>
+        /*实现“省”和“市”的级联下拉列表*/
+        var cities = [
+            [{ "name": '东城区', "value": 101 },
+            { "name": '西城区', "value": 102 },
+            { "name": '海淀区', "value": 103 },
+            { "name": '朝阳区', "value": 104 }],
+            [{ "name": '河东区', "value": 201 },
+            { "name": '河西区', "value": 202 },
+            { "name": '南开区', "value": 203 }],
+            [{ "name": '石家庄市', "value": 301 },
+            { "name": '廊坊市', "value": 302 },
+            { "name": '保定市', "value": 303 },
+            { "name": '唐山市', "value": 304 },
+            { "name": '秦皇岛市', "value": 305 }]
+        ];
+
+        var select = document.querySelector("select[name=provs]");
+        select.setAttribute("onchange","change()");
+        /* function change (){
+            // console.log(select.selectedIndex);
+             var obj = cities[select.selectedIndex -1];
+             var seci = document.querySelector("select[name=cities]");
+             seci.className = "";
+             for(var key of obj){
+                 for(var n in key){
+                    option = document.createElement("option");
+                    option.innerHTML = key[n];
+                    seci.appendChild(option);
+                }
+             } 
+        } */
+
+        function change (){
+            // console.log(select.selectedIndex);
+            
+             var obj = cities[select.selectedIndex -1];
+             var seci = document.querySelector("select[name=cities]");
+            if(select.selectedIndex>0){seci.className = "";
+            var frag = document.createDocumentFragment();
+             seci.innerHTML = "";
+             /* var option = document.createElement("option");
+             option.innerHTML = "请选择";
+             frag.appendChild(option); */
+
+             frag.appendChild(new Option("请选择"));
+             for(var key of obj){
+                    option = document.createElement("option");
+                    option.innerHTML = key.name;
+                    // seci.appendChild(option);
+                    frag.appendChild(option);
+             } 
+                    seci.appendChild(frag);
+            } else{
+                seci.className = "hide";
+            }
+        }
+    </script>
+</body>
+
+</html>

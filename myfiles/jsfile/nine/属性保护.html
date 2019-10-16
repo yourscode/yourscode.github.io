@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        function Emp(id,ename,sal,age){
+            var _age,_ename;
+            Object.defineProperties(this,{
+                id:{
+                    value: id,
+                    Writable: false,
+                    enumerable:true,
+                    configurable:false
+                },
+                ename:{
+                    value:ename,
+                    getename(){
+                    console.log("调用getename方法");
+                    return this._ename;
+                },
+                setename(val){
+                    console.log("调用setename方法");
+                    if(ename !=null){
+                        _age = value;
+                    }else{
+                        throw new Error("名字不能为空!");
+                    }
+                },
+                    writable: true,
+                    enumerable:true,
+                    configurable:false
+                },
+                sal:{
+                    value:sal,
+                    writable: true,
+                    enumerable:false,
+                    configurable:false
+                },
+                age:{
+                        // value : age,         
+                    get(){
+                    console.log("调用get方法");
+                    return _age    ;
+                },
+                set(val){
+                    console.log("调用set方法");
+                    if(val >= 18&&val <= 65){
+                        _age = val
+                    }else{
+                        throw new Error("年龄必须在18~65之间");
+                    }
+                },
+                enumerable: true,
+                configurable: false,
+                }
+               
+            })
+            this.age = age;
+            // this.ename = ename;
+            // Object.preventExtensions(this);
+            Object.seal(this);
+
+        }
+
+
+    var yg = new Emp(1001,"lilei",1200,24);
+    // yg.age = -19;
+    // yg.ename = "";
+    // yg._age = -2;
+    
+    // yg._age = -2;
+    // delete yg.age;
+    console.log(yg);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    //红1-33 蓝0-16   
+    //红的6个,蓝色球1;  
+    //判断数组中是否有相同的随机数,如果没有放入数组中,
+    //将reds中的数排序
+    //在1~16生成随机数
+    <script>
+        function ball(){
+            var reds = [];
+            for( var i = 0 ;i < 6 ; i++){
+            var s = parseInt(Math.random()*33+1);
+                if(reds.indexOf(s) == -1){
+                    reds.push(s);
+                }else{
+                    i--;
+                }
+                reds.sort(function(a,ball){return a-b});
+            }
+            var b = parseInt(Math.random()*16+1);
+            
+
+        }
+
+
+
+
+
+
+
+
+
+        /* var reg = [],reg2 = [];
+        for(var i =0 ; i < 6 ; i++){
+        var red = parseInt(Math.random()* (33 - 1 +1) + 1);
+        for(var k= 0 ; k < reg.length ; k++){
+            if(reg[k] == red){
+                 red = parseInt(Math.random()* (33 - 1 +1) + 1);
+            }else{
+            reg[i] = red;
+        }
+        }
+        }
+        console.log(reg); */
+        // console.log(reg);
+        /* for(var j = 0 ; j < 1 ; j++){
+        var blue = parseInt(Math.random()*(16 - 1 +1) + 1);
+            reg2[j] = blue;
+        }
+        // console.log(reg2);
+        sum = reg.concat(reg2);
+        console.log(sum); */
+    </script>
+</body>
+</html>

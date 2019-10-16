@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //服务器要求
+        var sub = ["月光","青天","紫烟","日照","生"];
+        // var reg = new RegExp("正则表达式","ig");
+        var str = "床前明月光,一行白鹭上青天,日照香薷生紫烟";
+        //  var sub2 = sub.split(",");
+        // console.log(sub2);
+        var con = "";
+        for( var i = 0 ; i < sub.length ; i++){
+            if(sub[i].length == 1){
+                // console.log(sub[i]);
+                // console.log(typeof sub[i]);
+                // console.log(sub[i].length);
+                var reg1 = new RegExp(sub[i],"ig");
+                var len1 = str.replace(reg1,"*");
+                console.log(len1);
+            }else if(sub[i].length == 2){
+                var sub2 = [];
+                for(var j = 0 ; j < 10 ; j++){
+                    sub2[j] = sub[i];
+                }
+                
+                var reg2 = new RegExp(sub[i],"ig");
+                var len2 = str.replace(reg2,"**");
+            }
+        }
+                console.log(len2);
+                console.log(sub2);
+            
+            
+            
+            
+            
+            
+            /* else if(sub[i].length == 2){
+            var reg = new RegExp(sub.join("|"),"ig");    //sub.join("|")不需要加双引号,因为join返回的就是String
+            var len = str.replace(reg,"*");
+            console.log(len);
+            } */
+        
+        // var len = str.replace(/月光|青天/g,"**");
+        // console.log(sub.join("|"));
+
+        // if()
+    </script>
+</body>
+</html>

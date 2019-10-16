@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+
+        }
+        td,th{
+            width: 200px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+        <!-- table>(thead>tr>td*4)+tbody>tr*3>td*4 -->
+        <!-- table>thead>(thead>tr*5)+tbody>tr*4>td*5 -->
+        <table>
+            <thead>
+                <tr>
+                    <td>名称</td>
+                    <td>数量</td>
+                    <td>单价</td>
+                    <td>小计</td>
+                </tr>
+            </thead>
+            <tbody id="main">
+                <!-- <tr>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr> -->
+            </tbody>
+        </table>
+
+
+        <script>
+            var db = [
+                {name: "iphone8",price :"4888",count: 1},
+                {name: "iphone8P",price :"5879",count: 2},
+                {name: "iphonex",price:"6789",count: 1}
+            ]
+
+            var html = "";
+            // for(var i = 0; i < db.length ; i++){
+                for(let p of db){
+                // var p = db[i];
+                html += `<tr>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                    <td>${p.count}</td>
+                    <td>${(p.price*p.count).toFixed(2)}</td>
+                </tr>`;
+            }
+            main.innerHTML = html;
+        </script>
+</body>
+</html>

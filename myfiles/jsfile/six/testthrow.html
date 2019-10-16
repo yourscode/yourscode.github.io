@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //静静
+        function round(num,d){
+            if(!isNaN(num) && !isNaN(d)){
+
+            num = num*Math.pow(10,d);
+            num = Math.round(num);
+            return num/Math.pow(10,d);
+            }
+            else{
+                throw new Error("必须传入数字");
+            }
+        }
+        //明明
+        var num = prompt("请输入数字");
+        var d = prompt("请输入小数");
+        if(!isNaN(num) && !isNaN(d)){
+        var result = round(num,d);
+        document.write("四舍五入的结果"+result+"<br>");
+    }
+            else{
+        alert("请输入数字");
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+ES6中的内置类型有几个?   11个
+    String    Number    Boolean    ---包装类型
+    Array   Date    RegExp  Math  
+     Error
+    Function     Object
+    Global(在浏览器中,被浏览器代替了)
+什么是包装类型:  专门保存一个原始类型的值,并提供操作原始类型的值API
+为什么?   因为原始类型的值本身是没有任何功能的,
+什么时候使用:  只要试图对原始类型的值调用API时,都会自动使用该原始类型对应的包装类型对象
+如何: 1.内存中已经预置了三大包装类型的对象
+        String   Number  Boolean
+     2.   在试图对原始对象的值调用API时,自动检测原始类型的值的
+     3.根据类型名实例化对应到的包装类型对象,调用其API
+     4.执行后包装类型对象自动释放
+所有能new的
+
+
+
+判断一个对象不是数组类型有几种方法
+
+typeof  只能区分五种原始类型和function
+无法进一步细致区分对象的类型
+
+Array.prototype.isPrototypeOf(ob);
+判断Array.prototype 是不是obj放入父级的原型对象
+
+判断构造函数  
+Obj  instanceOf Array
+
+
+判断每个对象内部的隐藏属性  class
+  class 属性在创建对象时保存对象的类型

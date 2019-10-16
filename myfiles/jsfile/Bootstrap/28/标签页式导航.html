@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css">
+</head>
+<body>
+    <ul class="nav nav-pills">
+        <li  class="active"><a href="" data-toggle="tab" class="active">1</a></li>
+        <li><a href="" data-toggle="tab">2</a></li>
+        <li><a href="" data-toggle="tab">3</a></li>
+        <li><a href="" data-toggle="tab">4</a></li>
+        <li><a href="" data-toggle="tab">5</a></li>
+        <li><a href="" data-toggle="tab">6</a></li>
+    </ul>
+
+            <a href="" class="btn btn-default">
+                <span class="glyphicon glyphicon-camera"></span>
+            </a>
+            <a href="" class="btn btn-info">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </a>
+            <a href="" class="btn btn-warning">
+                <span class="glyphicon glyphicon-education"></span>
+            </a>
+            <a href="" class="btn btn-danger">
+                <span class="glyphicon glyphicon-apple"></span>
+            </a>
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+
+
+
+
+
+            <div class="alert alert-warning">
+                <span class="close" data-dismiss="alert">&times;</span>
+                <p>
+                    你的浏览器版本太低!
+                </p>
+            </div>
+
+            <div class="progress progress-bar-warning">
+                <div id ="iiii" class="progress-bar progress-bar-info progress-bar-striped active" style="width:0%">0%</div>
+            </div>
+            <button id="btn">停止</button>
+    <script src="../bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script>
+
+        var i =0; 
+        var timer = setInterval(function(){
+            // console.log(i);
+            // console.log($(".progress-bar").attr("width"));
+            $(".progress-bar").width(`${i}%`); 
+            $(".progress-bar").html(`${i}%`)
+            i++;
+            if(i>100){
+                clearInterval(timer);
+            }
+            $("#btn").click(function(){
+                timer = null;
+                console.log($(this).html());
+                if($(this).html()=="停止"){
+                    clearInterval(timer);
+                $(this).html("开始");
+                }else if($(this).html()=="开始"){
+                    timer = setInterval(function(){
+                        $(".progress-bar").width(`${i}%`); 
+                        $(this).html("停止");
+                    })
+
+                }
+            
+            })
+        },100)
+        
+    </script>
+</body>
+</html>

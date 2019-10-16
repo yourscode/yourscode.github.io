@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>js中使用confirm方法</title>
+</head>
+<body>
+ 
+<button type="button" id="btn3">呵呵呵呵呵</button>
+ 
+<script>
+/**
+$('#btn3').click(function(){
+    if(confirm('这个是第三个按钮')){
+        console.log('呵呵呵');
+    }
+});
+**/
+document.getElementById('btn3').onclick = function(){
+    if(confirm('这个是第三个按钮')){
+        console.log('呵呵呵');
+    }
+}
+</script>
+</body>
+</html>

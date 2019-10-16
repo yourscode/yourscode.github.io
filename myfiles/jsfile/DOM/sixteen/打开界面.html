@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.jd.com" target  = "-blank">京东</a>
+    <br>
+    <a href="https://www.jd.com" target="blank">京东在新窗口打开并且只能打开一个</a>
+    <br>
+    <a href="javascript:open3()" target="blank">淘宝在新窗口打开并且只能打开一个(JS)</a>
+    <br>
+    <a href="https://www.taobao.com" target="_self">淘宝</a>
+    <br>
+    <a href="javascript:open1()" target="_self">京东js(在当前窗口打开)</a>
+    <br>
+    <a href="javascript: open2()" target="_self">淘宝js</a>
+    <a href="javascript: open4()">淘宝js在当前窗口打开禁止后退</a>
+
+</body>
+<script>
+ function open1(){
+        open("https://www.jd.com","_self");
+    }
+function open2(){
+        open("https://www.taobao.com","_blank");
+    }
+    function open3(){
+        open("https://www.taobao.com","blank");
+    }
+    function open4(){
+        location.replace("https://www.baidu.com");
+    }
+</script>
+</html>

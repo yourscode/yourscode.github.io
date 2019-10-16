@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/layui/css/layui.css">
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: burlywood;
+            display: none;
+        }
+
+        .box1 {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: burlywood;
+            display: none;
+        }
+
+        .box2 {
+            width: 500px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(240, 240, 240);
+            display: none;
+        }
+
+        #titlename {
+            display: none;
+        }
+
+        #titlename1 {
+            display: none;
+        }
+
+        #pagination {
+            text-align: center;
+            height: 30px;
+            position: absolute;
+            background: #009688;
+            bottom: 10%;
+            right: 10%;
+            /* transform: translate(-50%, -50%); */
+        }
+
+        #pagination>li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #pagination>li:hover {
+            background: #acf7ef;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="400">
+                <col width="200">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>年级</th>
+                    <th>修改</th>
+                </tr>
+            </thead>
+            <tbody id="tbody1">
+                <div id="test1"></div>
+            </tbody>
+        </table>
+
+        <ul class="pagination pull-right" id="pagination">
+
+        </ul>
+        <!-- 修改 -->
+        <div class="box">
+            <form class="layui-form">
+                <div class="layui-form-item" id="titlename">
+
+                </div>
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入编号"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入姓名"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入年龄"
+                        autocomplete="off" class="layui-input">
+                </div>
+
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入年级"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" type="button" id="sub">立即提交</button>
+                        <button type="button" class="layui-btn layui-btn-primary" id="canc">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 添加 -->
+        <div class="box1">
+            <form class="layui-form">
+                <div class="layui-form-item" id="titlename1">
+
+                </div>
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入编号"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入姓名"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入年龄"
+                        autocomplete="off" class="layui-input">
+                </div>
+
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入年级"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" type="button" id="subone">立即提交</button>
+                        <button type="button" class="layui-btn layui-btn-primary" id="cancone">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="box2">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <!-- <label class="layui-form-label">姓名</label> -->
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入编号"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" type="button" id="sub1">查找</button>
+                        <button type="button" class="layui-btn layui-btn-primary" id="canc1">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        </form>
+    </div>
+
+    </div>
+    <script src="./layui/layui/layui.js"></script>
+    <script>
+        //一般直接写在一个js文件中
+        layui.use(['layer', 'form', 'laypage'], function () {
+            var layer = layui.layer
+                , form = layui.form
+                , laypage = layui.laypage;;
+
+        });
+
+    </script>
+
+    <!-- http://1.119.195.59:85/api/AppInfo/DowloadFile -->
+    <script src="./js/jquery-1.12.4.js"></script>
+
+    <!-- 获取token -->
+    <script>
+        $(function () {
+            function getToken() {
+                var token = null;
+                $.ajax({
+                    url: 'http://1.119.195.59:89/TrainCenter/api/Authorize/login',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "Account": "0001",
+                        "Password": "0000",
+                        "BusinessId": "center",
+                        "BusinessName": "配置中心",
+                        "Terminal": "web"
+                    }),
+                    type: "POST",
+                    success: function (data) {
+                        // console.log(data.Data.Token);
+                        token = data.Data.Token;
+                        localStorage.setItem("token", token);
+                        // console.log(localStorage.getItem("token"));
+
+                    }
+                });
+            }
+            getToken();
+            setInterval(function () {
+                getToken();
+            }, 60000 * 30);
+        })
+    </script>
+
+    <!-- 展示 -->
+    <script>
+        $(function () {
+
+            function loadProduct(PageIndex, PageSize) {
+                $.ajax({
+                    // url: 'http://1.119.195.59:85/api/v1/Base/Get',
+                    url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/ExecuteProcedurePaging',
+                    contentType: "application/json",
+                    data: {
+                        "dataBase": "train",
+                        "procName": "PRO_MHZP",
+                        "inParms": "[{\"Name\":\"pageIndex\",\"Property\":\"int\"},{\"Name\":\"pageSize\",\"Property\":\"int\"}]",
+                        "outParms": "[{\"Name\":\"totalRow\",\"Property\":\"int\"},{\"Name\":\"c_CurSor\",\"Property\":\"cursor\"}]",
+                        "pageIndex": 1,
+                        "pageSize": 10,
+                        "parmNames": "{\"PageIndexName\":\"pageIndex\",\"PageSizeName\":\"pageSize\",\"TotalRowName\":\"totalRow\"}"
+                    },
+                    type: "GET",
+                    headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+                    success: function (data) {
+                        console.log(data);
+                        console.log(data.Data);
+                        var res = data.Data;
+                        var result = JSON.parse(res).rows;
+                        console.log(result);
+
+                        var html = "";
+                        for (let key of result) {
+
+                            // for (var key in res) {
+                            html += `<tr>
+            <td>${key.Id}</td>
+            <td>${key.Name}</td>
+            <td>${key.Age}</td>
+            <td>${key.Class}</td>
+            <td>
+                    <div class="layui-btn-group">
+                        <button id="add" type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon " id="${key.Id}">&#xe654;</i>
+                        </button>
+                        <button id="del" type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon" id="${key.Id}">&#xe640;</i>
+                        </button>
+                        <button id="modi" class="layui-btn layui-btn-sm" type="button">
+                            <i class="layui-icon " id="${key.Id}">&#xe642;</i>
+                        </button>
+                        <button id="find" type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon" id="${key.Id}">&#xe615;</i>
+                        </button>
+                    </div>
+                </td>
+        </tr>`
+
+                        }
+                        $("#tbody1").html(html);
+                        var ml = "";
+                        var page = PageIndex;
+                        var pageSize = PageSize;
+                        var pageCount = Math.ceil(JSON.parse(data.Data).total / PageSize);
+                        console.log(Math.ceil(JSON.parse(data.Data).total / PageSize));
+
+                        // 上上一页
+                        if (page - 2 > 0 && page !== 0) {
+                            ml += `<li><a href="${page - 2}">${page - 2}</a></li>`
+                        }
+                        // 上一页
+                        if (page - 1 > 0 && page !== 0) {
+                            ml += `<li><a href="${page - 1}">${page - 1}</a></li>`
+                        }
+                        //当前页
+                        ml += `<li><a href="${page}">${page}</a></li>`
+                        //下一页
+                        if (page + 1 <= pageCount) {
+                            ml += `<li><a href="${page + 1}">${page + 1}</a></li>`
+                        }
+                        //下两页
+                        if (page + 2 <= pageCount) {
+                            ml += `<li><a href="${page + 2}">${page + 2}</a></li>`
+                        }
+                        $("#pagination").html(ml);
+                    }
+
+                })
+            }
+
+            loadProduct(1, 8);
+            $("#pagination").on("click", "li>a", function (event) {
+                event.preventDefault();
+                var page = parseInt($(this).attr("href"));
+                $("this").css("background", "black");
+
+                loadProduct(page, 8);
+            })
+        })
+    </script>
+
+    <!-- 删除 -->
+    <script>
+
+        /* $("#tbody1").on("click",".psel",function(){
+            console.log($(".psel")); */
+        $("#tbody1").on("click", "#del", function () {
+
+
+            console.log($(this).children()[0]);
+            var id1 = $(this).children()[0];
+            var id = $(id1).attr("id");
+            console.log(id);
+
+            $.ajax({
+                url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/Execute',
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "DataBase": "train",
+                    "DynamicTable": {
+                        "WorkType": "Delete",
+                        "TableName": "ZZ",
+                        "Conditions": [
+                            {
+                                "Property": "ID",
+                                "Oper": "eq",
+                                "Value": id
+                            }
+                        ]
+                    }
+
+                }),
+                type: "POST",
+                headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+            });
+            if (confirm("删除成功!")) {
+                window.location.reload();
+            }
+        })
+    </script>
+
+    <!-- 修改 -->
+    <script>
+
+
+        $("#tbody1").on("click", "#modi", function (event) {
+            $(".box").css("display", "block");
+            event.stopPropagation();
+            var parentTr = $(this.parentNode.parentElement).parents()[0];
+
+            var value11 = $(parentTr).children()[0].innerHTML;
+            var value12 = $(parentTr).children()[1].innerHTML;
+            var value13 = $(parentTr).children()[2].innerHTML;
+            var value14 = $(parentTr).children()[3].innerHTML;
+            $(".box input")[0].value = value11;
+            $(".box input")[1].value = value12;
+            $(".box input")[2].value = value13;
+            $(".box input")[3].value = value14;
+            console.log($(this.parentNode.parentElement).parents()[0]);
+            console.log(value11, value12, value13, value14);
+
+            var myThis = this;
+
+            $("#titlename").css({
+                'display': "block",
+                textAlign: "center",
+                fontSize: "18px"
+            });
+            $("#titlename").html("修改");
+            $("#canc").click(function () {
+                $(".box").css("display", "none");
+            })
+
+            $("#sub").click(function (e) {
+                e.stopPropagation();
+                let value1 = + $(".box input")[0].value;
+                let value2 = $(".box input")[1].value;
+                let value3 = + $(".box input")[2].value;
+                let value4 = $(".box input")[3].value;
+                let id1 = $(myThis).children()[0];
+                console.log(value1, value2, value3, value4);
+                // console.log(id1);
+
+                var id = $(id1).attr("id");
+                // console.log(id);
+
+
+                $.ajax({
+                    url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/Execute',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "DataBase": "train",
+                        "DynamicTable": {
+                            "WorkType": "Update",
+                            "TableName": "ZZ",
+                            "TableData": {
+                                ID: value1,
+                                NAME: value2,
+                                AGE: value3,
+                                CLASS: value4
+                            },
+                            "Conditions": [
+                                {
+                                    "Property": "ID",
+                                    "Oper": "eq",
+                                    "Value": id
+                                }
+                            ]
+                        }
+
+                    }),
+                    type: "POST",
+                    headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+                });
+                if (confirm("修改成功!")) {
+                    window.location.reload();
+                }
+            })
+
+        })
+    </script>
+
+    <!-- 添加 -->
+    <script>
+        $("#tbody1").delegate("#add", "click", function () {
+            $(".box1").css("display", "block");
+            console.log($(".box1 input"));
+            // $(".box input")[0].value = null;
+            // $(".box input")[1].value = null;
+            // $(".box input")[2].value = null;
+            // $(".box input")[3].value = null;
+            $("#titlename1").html("添加");
+            $("#titlename1").css({
+                'display': "block",
+                textAlign: "center",
+                fontSize: "18px"
+            });
+            $("#cancone").click(function () {
+                $(".box1").css("display", "none");
+            })
+
+            $("#subone").click(function (e) {
+                e.stopPropagation();
+                var value1 = + $(".box1 input")[0].value;
+                var value2 = $(".box1 input")[1].value;
+                var value3 = + $(".box1 input")[2].value;
+                var value4 = $(".box1 input")[3].value;
+                var id1 = $("#modi").children()[0];
+                console.log(value1, value2, value3);
+                console.log(typeof value2);
+
+                var id = $(id1).attr("id");
+                console.log(id1);
+
+
+                $.ajax({
+                    url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/Execute',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "DataBase": "train",
+                        "DynamicTable": {
+                            "WorkType": "Save",
+                            "TableName": "ZZ",
+                            "TableData": {
+                                ID: value1,
+                                NAME: value2,
+                                AGE: value3,
+                                CLASS: value4
+                            }
+                        }
+
+                    }),
+                    type: "POST",
+                    headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+                });
+                if (confirm("添加成功!")) {
+                    window.location.reload();
+                }
+
+
+            })
+
+        })
+        // top.location.reload();
+    </script>
+
+
+    <!-- 查询单条信息 -->
+    <script>
+        $("#tbody1").on("click", "#find", function () {
+            $(".box2").css("display", "block");
+            $("#canc1").click(function () {
+                $(".box2").css("display", "none");
+            })
+            $("#sub1").click(function (event) {
+                event.stopPropagation;
+                var value1 = + $(".box2 input")[0].value;
+                console.log(value1);
+
+
+                $.ajax({
+                    url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/Get',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "DataBase": "train",
+                        "DynamicTable": {
+                            "WorkType": "Get",
+                            "TableName": "ZZ",
+                            "Conditions": [
+                                {
+                                    "Property": "Id",
+                                    "Oper": "eq",
+                                    "Value": value1
+                                }
+                            ]
+                        }
+                    }),
+                    type: "POST",
+                    headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+                    success: function (data) {
+                        // console.log(data.Data);
+                        var obj = {};
+                        var str = data.Data[0];
+                        for (var key in str) {
+                            console.log(key);
+                            obj[key] = str[key];
+                        }
+                        alert(`Id=${obj.Id}  Age=${obj.Age}  Name=${obj.Name}   Class=${obj.Class}`);
+
+                    }
+
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

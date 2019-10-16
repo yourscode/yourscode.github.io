@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var msg = "今晚，w8fu";
+        function encode(){
+            var code = "";
+
+            for(var i = 0 ; i < msg.length ; i++){
+                var uc = msg[i].charCodeAt();
+                // uc = (117 + 100000 + "").slice(1);
+                // if(uc <100){
+                //     uc = "000" + uc;
+                // }else if (uc < 1000){
+                //     uc = "00" + uc;
+                // }
+                code += uc;
+                // var uc = msg[i].charCodeAt();
+                // code += uc;
+            }
+            return code;
+
+        }
+
+        var code = encode(msg);
+        console.log(code);
+
+        function decode(){
+            //  ，
+            //声明变量
+            var msg = "";
+            //遍历每五个数字转换
+            for(var i = 0 ; i < code.length ; i+=5){
+            //将UniCode转换为汉字
+                var uc = code.slice(i,i+5);
+            uc = (uc + 100000 + "").slice(1);
+                // code[i].fromCharCode(uc);
+                msg += String.fromCharCode(uc);
+            }
+            return msg;
+            //输出
+        }
+        var value = decode();
+        console.log(value);
+
+
+        // uniCode = str.split(",");
+        // console.log(uniCode.charCodeAt);
+        // console.log(str.charCodeAt());
+    </script>
+</body>
+</html>

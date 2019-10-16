@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function  jisuan(base,bonuse1,bonuse2){
+            console.log(this.ename + "总工资是" + (base+ bonuse1+ bonuse2));
+        }
+        var lilei  = {ename : "lilei"}
+        var hmm = {ename : "hmm"}
+        jisuan.call(lilei,10000,1000,2000);
+        
+        var lilei_jisaun = jisuan.bind(lilei,10000);
+        lilei_jisaun(2,7);
+
+
+
+        var   liming  = {ename : "liming"};
+
+        // liming(20000,200,300); 
+        var value = jisuan.bind(liming,20000,200,300)();
+        //value();
+    </script>
+</body>
+</html>

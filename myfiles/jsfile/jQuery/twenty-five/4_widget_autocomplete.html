@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Autocomplete</h1>
+	
+	菜品搜索：<input type="text" name="search">
+
+
+<!--
+	<form action="9.php">
+	芳龄：<input type="text" name="age" autocomplete="off">
+	<input type="submit">
+	</form>
+-->
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		var arr = [
+			"宫保鸡丁",
+			"红烧鸡块",
+			"孜然鸡肉",
+			"上饶鸡腿",
+			"北京烤鸭",
+			"孜然鸭皮",
+			"红烧鸭块",
+			"红烧鸭翅"
+		];
+
+		$("input[type=text]").autocomplete({
+			// source: arr
+			source: "http://192.168.33.132:83/AJAX/getProductsByKw.php"
+		})
+	</script>
+ </body>
+</html>

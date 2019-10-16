@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    img{
+      animation: identifier 5s  3;
+      opacity: 1;
+    }
+    @keyframes identifier {
+      0%{
+        transform: scale(1,1);
+      }
+      20%{
+        transform: scale(1.2,1.2);
+      }
+      40%{
+        transform: scale(1.1,1.1);
+      }
+      60%{
+        transform: scale(1.2,1.2);
+      }
+      80%{
+        transform: scale(1,1);
+      }
+      100%{
+        transform: scale(1.1,1.1);
+      }
+
+    }
+  </style>
+</head>
+<body>
+<img src="img/star.png">
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+  /* $("img").click(function(){
+    for(var i = 0;i < 3; i ++){
+      $(this).animate({opacity : 0},500).animate({opacity : 1})
+      $(this).animate({
+        opacity : 0
+      })
+    }
+
+  }) */
+</script>
+</body>
+</html>

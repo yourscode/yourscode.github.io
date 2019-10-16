@@ -1,0 +1,6 @@
+body{
+    background-color: #fff;
+    display: table-cell;
+    padding: 5vh;
+    border: 1px solid red;
+}

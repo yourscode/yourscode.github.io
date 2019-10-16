@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">发送</button>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+    $(".btn").click(function(){
+        $.ajax({
+            url: "/user",
+            type: "post",
+            data : {uname : "zhangsan",age : 18},
+            success : (result)=>{
+                console.log(result);
+            }
+        })
+    })
+</script>
+
+
+
+
+    <!-- <script>
+        var value = "uname="+'hzh'+"&age="+18;
+        var btn = document.querySelector("button");
+       btn.onclick = function(){
+           var xhr = new XMLHttpRequest();
+           xhr.open("post","/user",true);
+           xhr.send(value);
+/*            xhr.setRequestHeader("Content-Type",application/x-www-form-urlencode); */
+           xhr.onreadystatechange = function(){
+               if(xhr.readyState==4&&xhr.status==200){
+                   var result = responseText;
+                   console.log(result); 
+               }
+           }
+       }
+        
+    </script> -->
+</body>
+</html>

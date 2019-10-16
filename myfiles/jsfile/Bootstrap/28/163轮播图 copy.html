@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .carousel {
+            width: 670px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            outline: 2px solid sandybrown
+        }
+        .paging{
+            position: absolute;
+            bottom:20px;
+            right: 20px;
+        }
+        .paging a{
+            padding: 0 5px;
+            margin: 0 5px;
+            text-decoration: none;
+            color: black;
+        }
+        .image_reel{position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .image_reel a img{float: left;}
+        
+        .paging a:hover{
+            background-color: #fff;
+            font-weight: bolder;
+        }
+        .paging a.active{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="window">
+            <div class="image_reel">
+                <a href="#"><img src="../27/img/ad1.jpg" alt=""></a>
+                <a href="#"><img src="../27/img/ad2.jpg" alt=""></a>
+                <a href="#"><img src="../27/img/ad3.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="paging">
+            <a href="#" rel="1" class="active">1</a>
+            <a href="#" rel="2">2</a>
+            <a href="#" rel="3">3</a>
+        </div>
+    </div>
+    <script src="../bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+    <script>
+
+        $(".paging").show();
+        $(".paging a:first").addClass("active");
+        var imageWidth = $(".image_reel").width();
+        var imageSum = $(".image_reel img").size();
+
+        var imageReelWidth = imageWidth * imageSum;
+        console.log(imageWidth,imageSum,imageReelWidth);
+        $(".image_reel").css("width",`${imageReelWidth}px`);
+
+        rotate = function(){
+            var triggerID = $active.attr("rel") - 1;
+            var image_reelPosition = triggerID * imageWidth;
+            $(".paging a").removeClass("active");
+            $active.addClass("active");
+            $(".image_reel").animate({
+                left : -image_reelPosition
+            },500);
+        }
+        rotateSwitch = function(){
+            play = setInterval(function(){
+                $active = $(".paging a.active").next();
+                if($active.length === 0){
+                    $active = $(".paging a:first");
+                }
+                rotate();
+            },2000)
+        }
+        rotateSwitch();
+
+        $(".paging a").click(function(){
+            $active = $(this);
+            clearInterval(play);
+            rotate();
+            rotateSwitch();
+            return false;
+        })
+
+        $(".image_reel a").hover(function(){
+            clearInterval(play);
+        },function(){
+            rotateSwitch();
+        })
+        /* $(".paging a").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        }) */
+    </script>
+</body>
+
+</html>

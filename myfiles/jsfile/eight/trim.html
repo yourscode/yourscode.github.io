@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "     can you    place    ";
+        // document.write(str);
+        var len  = str.trim();
+        document.write(len);
+        if(!String.prototype.trim!=="function"){
+            String.prototype.trim = function(index){
+
+
+                // RegExp = /\s+/
+
+                return this.replace(/^\s+|\s+$/g,"");
+
+                /* for(var i = 0 ; i < index.length ; i++){
+                    if(index[i] == " "){
+
+                    } */
+                
+            }
+        }
+        console.log(str.trim());
+    </script>
+</body>
+</html>

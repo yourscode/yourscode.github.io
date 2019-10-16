@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border:1px solid #999999;
+            
+        }
+        tr,td{
+            border-bottom: 1px solid #999999;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <table>
+        <thead>
+            <tr>
+                <td>用户名</td>
+                <td>邮编</td>
+                <td>手机号</td>
+                <td>真实姓名</td>
+                <td>性别</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="show">
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <span id="box"></span>
+    <!-- <script src="comment.js"></script> -->
+    <script>
+        window.onload = function(){
+            var xhr = new XMLHttpRequest();
+            var msg;
+            // console.log(xhr);
+            xhr.open("GET","http://192.168.33.132:83/ajax/select-user.php",true);
+            xhr.send(null);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4&&xhr.status==200){
+                    var result = xhr.responseText;
+                    msg = JSON.parse(result);
+                    // console.log(msg);
+                    var html ="";
+                for(var key of msg){
+                    html+=`<tr>
+                <td>${key.uname}</td>
+                <td>${key.email}</td>
+                <td>${key.phone}</td>
+                <td>${key.user_name}</td>
+                <td>${key.gender=="0"?"男":key.gender=="1"?"女":"不详"}</td>
+                <td><a href ="javascript:del(${key.uid})">删除</a></td>
+            </tr>`;
+            
+            /* if(key.user_name=="廖伟云"){
+                // href="javascript:deluseer(${key}
+                var value = key.uid;
+                console.log(value);
+                var xhr1 = new XMLHttpRequest();
+                console.log(xhr1);
+                xhr1.open("get","http://192.168.33.132:83/ajax/delete.php?uid="+value,true);
+                xhr1.send(null);
+                xhr1.onreadystatechange = function(){
+                    if(xhr1.readyState ==4&&xhr1.status==200){
+                        var it = xhr1.responseText;
+                        console.log(it);
+                    }
+                }
+            } */
+            show.innerHTML = html;
+                }
+                    }
+
+            }
+            function del(uid){
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4&&xhr.status==200){
+                        var res=xhr.responseText;
+                        if(res=="1"){
+                            alert("删除成功");
+                            location.reload();
+                        }else{
+                            alert("删除失败");
+                        }
+                    }
+                }
+                xhr.open("get","http://192.168.33.132:83/ajax/delete.php?uid="+uid,true);
+                xhr.send(null);
+            }
+                }
+            
+            
+
+        
+    
+        </script>
+</body>
+</html>

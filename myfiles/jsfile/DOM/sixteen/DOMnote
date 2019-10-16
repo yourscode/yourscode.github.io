@@ -1,0 +1,99 @@
+form
+    var form = document.forms[i/id];
+    属性: 
+        .elements 获得获得表单中所有表单元素的集合
+    表单元素: input button textarea select
+    .elements.length  获得表单中表单元素的个数
+        ===> .length
+    找表单元素:
+    方法: 
+        form.submit();  //手动提交
+        form.reset();   重置
+    获取: var 表单元素 = form.elements[i/id/name];
+    如果表单元素有name属性
+        可以: form.name的值
+        方法:  elem.focus()  //elem获得焦点:
+                elem.blur()    //失去焦点
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>--------BOM--------<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+BOM ; Browser Object Model
+what? 专门用来操作浏览器的API
+problem: 没有标准,兼容性差 
+1.window 
+2.history
+3.location
+4.navigator
+5.document
+6.event
+7.screen
+
+window: 
+    1. 包含了所有ES, DOM的API
+    2.代替ES 中的global,充当全局作用域对象
+打开和关闭窗口四种
+    1.在当前窗口打开,可以后退
+        html: <a href = "url" target = "_self"></a>
+        js: window.open("url","_self");      //window可写可不写
+    2.在当前窗口打开,禁止后退
+        js: location.replace("新的url");
+    3.在新窗口打开,只能打开一个
+        html; <a href = "url" target = "blank"></a>
+        js: open("url","自定义窗口名")
+    4.在新窗口打开,可打开多个
+        html : <a href = "" target = "_blank"></a>
+        js: open("url","_blank");
+    原理: 其实每个窗口都有一个隐藏的name属性
+    在打开窗口时,通过target指定
+    浏览器规定: 相同name属性的窗口 只能打开一个,后打开的会定义先打开的
+    关闭窗口:  window.close()
+
+
+history: 每个窗口保存当前窗口打后,成功访问过的url的历史记录栈
+只开放了一个API:   history.go();  //模拟前进后退的
+            前进一步:  history.go(1);
+            刷新:      history.go(0);
+            后退一步:  history.go(-1);
+location: 
+    what? 专门保存当前窗口正在打开的url对象
+    属性: 
+        .href  获取或者设置当前窗口的url
+        .protocol  协议
+        .host   主机名  和  端口号
+        .hostname     主机名
+        .port      端口
+        .pathname     相对路径
+        .hash     #锚点地址
+        .search     ?查询字符串参数
+            笔试题: 解析查询字符串为对象{name:balala; age: 22;}:   95%会考
+                1,在当前窗口打开新的链接,可后退
+                location.assign("新url");
+                ==>location.href = ";新url"
+                ==>location = "新url";
+                2.在当前窗口打开新的链接,禁止后退
+                    location.replace("新的url");
+                3.刷新: 
+                    1.普通刷新: 优先从浏览器本地中获取资源,本地没有,才去服务获取资源
+                    F5  location.reload();
+                    2.强制刷新: 每次忽略缓存,直接从服务器获取
+                    location.reload(true);
+
+
+
+
+定时器:
+    周期性定时器:
+        what? 让程序每隔一段时间,反复执行一项任务
+        how? 
+            1.定义任务函数: 
+            2.启动定时器: var timer = setInterval(task,间隔 ms)
+                timer : 每次添加一个定时器,都会为定时器添加一个timer
+            3.停止定时器:
+                1. 手动停止定时器: clearInterval(timer);
+                2.自动停止定时器
+                    在任务函数中,判断临界值,如果临界值达到,则自动停止临界值
+    一次性定时器

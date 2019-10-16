@@ -1,0 +1,144 @@
+URL: 表示任意一个资源的位置
+    协议+主机名称+ 目录结构 + 文件名称
+    http协议: 
+    超文本传输协议: 用来规范数据是如何打包以及传递的
+        1.请求消息
+         客户端带给服务器的数据有哪些,由三部分组成
+         1.请求起始行,
+            1.请求方法: 
+                GET: 表示客户端向服务器获取资源时使用,
+                特点: 明文提交,待提交的数据会显示在地址栏上面
+                    安全性低
+                    提交数据有大小限制,限制大小为2KB
+                    GET没有请求主体,POST有请求主体
+                POST:  想传递数据给服务器使用,
+                    特点: 提交的数据不会显示在地址栏上面
+                        安全性较高
+                        提交数据没有大小限制
+                PUT: 表示客户端想放置文件到服务器
+                DELETE : 表示客户端想删除服务器上面的数据
+                HEAD: 表示客户端只想获取指定的响应头
+                CONNECT: 测试连接
+                TRACE: 追踪请求路径
+                enctype: 
+                    作用: 指定表单数据的编码规范,允许将什么样的数据提交到服务器
+                    取值: 
+                        1,application/x-www-form-urlencode默认值     允许将任意的字符提交到服务器,
+                        2, multipart/form-data     允许将文件提交到服务器
+                        3,text/plain    只能将普通字符提交到服务器
+            2.请求URL   http://192.168.33.132:83/ajax/01-http.php
+            3.协议版本: HTTP/1.1
+
+        2.请求头
+            1.host: localhost : 端口号 
+                作用: 告诉服务器请求哪个主机和端口号
+            2. Connection : keep-alive
+                告诉 服务器要持久链接
+            3.User-Agent
+                告诉服务器自己的类型
+            4.Accept-Language:zh-CH
+                告诉服务器自己能接受的自然语言
+            5.Accept-Encoding:gzip
+                作用: 告诉服务器能就接收的数据压缩类型是什么
+            6.Request: http://192.168.33.132:83/ajax/01-http.php
+         3.请求主体
+            Form Data 
+    2,响应消息
+      服务器向客户端返回信息,响应消息由三部分组成
+        1.响应起始行:
+                1.响应状态码: 作用: 告诉浏览器服务器响应的状态是什么
+            1xx  : 100-199,   提示信息
+            2xx  :  200   成功响应
+            3xx  :  需要进行重定向  301: 永久重定向   302: 临时重定向   304: Not Modified命中缓存
+            4xx  :  客户端请求错误  404 : Not Found请求资源不存在(大部分路径错误)   
+                                   403 : Forbidden 权限不够
+                                   405 : Meth Not Allowed 请求方法不允许
+            5xx  :  服务器运行错误   500 : 服务器内部错误
+        2.响应头
+            1.Date
+                作用:告诉浏览器,服务器的响应时间(格林尼治时间,需要加八小时才能和中国北京时间一样)
+            2.Content-Type
+                作用: 响应主体的类型是什么,告诉浏览器用什么方式解析响应主体
+                1,text/html:响应回来的数据是html文本
+                2,text/plain:响应回来的数据是普通文本
+                3,text/css:响应回来的数据是css样式
+                4,application/javascript:响应回来的数据是js格式
+                5,application/xml:响应回来的数据是xml格式
+                6,application/json:响应回来的数据是json格式
+                7,image/jpeg:响应回来的数据是图片
+        3.响应主体
+            Response:回来的主体内容
+    3.缓存: 
+        what? 就是客户端将服务器响应回来的数据自动保存,当再次访问时,直接使用保存的数据
+        优点: 
+             1.减少冗余数据的传输,节省客户端的流量
+             2.节省服务器带宽
+             3.降低对服务器资源的消耗和运行的要求
+             4.降低由于远距离而造成的延时加载的问题
+        与缓存相关的消息头
+            1.Cache-Contral 消息头
+                作用: 从服务器将文档传到客户端之时起,此文档处于新鲜的秒数
+                Cache-Contral: max-age=处于新鲜的秒数
+            2.Expires  消息头
+                作用: 指定缓存过期的确切时间(格林尼治时间)
+            3.在网页上设置消息头
+                <meta http-equiv="消息头" Content = "值">
+                <meta http-equiv="Cache-Content" content = "max-age=3600">
+
+>>>>>>>>>>>>>>>>>>>___________AJAX__________<<<<<<<<<<<<<<<<<<<
+    1,同步: 在一个任务进行中时,不能开启其他任务
+        同步访问: 浏览器在向服务器发送请求时,浏览器只能等待服务器的响应,不能做其他事情
+    
+    2,异步: 一个任务开启时,可以开启其他的任务,
+        异步访问: 浏览器在向服务器发送请求时,不耽误用户在网页上做其他操作
+AJAX的本质是使用js提供的异步对象 XMLHttpRequest 异步的向服务器发送请求,并接收服务器返回回来的数据
+异步请求的步骤
+    1.创建ajax(xhr)对象
+        var xhr = new XMLHttpRequest();
+        IE8以下: var xhr = new ActiveXObject("Microsoft.XMLHttp")
+        创建好了判断浏览器是否支持标准创建  
+            window.XMLHttpRequest 来判断浏览器是否支持标准创建,
+                如果浏览器不支持标准创建,那么window.XMLHttpRequest的值为null
+                if(window.XMLHttpRequest){
+                    var xhr = new XMLHttpRequest();
+                }else{
+                    var xhr = new ActiveXObject("Microsoft")
+                }
+    2.绑定事件
+        异步对象xhr的常用属性和方法
+        1.readyState属性
+            用于表示xhr对象的请求状态
+            值: 0~4 表示五个状态
+                0 : 请求尚未初始化 
+                1 : 已经打开到服务器的链接,正在发送请求中
+                2 : 接收响应头
+                3 : 接收响应主体
+                4 : 接收响应数据成功
+                注意: 当readyState的值为 4 的时候才表示所有的响应接收完毕
+        2.status属性
+            表示的是服务器的响应状态码
+            值为200   表示服务器已经正确处理了请求,以及给出了响应
+        3.onreadystatechange  事件
+            作用: 当xhr的readyStatus属性值发生改变的时候要自动激发的操作
+            语法: xhr.onreadystatechange = function(){
+                //判断 xhr.readyState 为 4 并且xhr.status为 200 的时候就可以获取响应数据了
+                if(xhr.readyState==4&&xhr.status==200){
+                    var reslut = xhr.responseText;
+                    console.log(reslut);
+                }
+
+            }
+    3.打开链接
+        open()
+            作用: 打开链接(创建请求)
+            语法 : xhr.open(method,url,isAsyn)
+            method: string类型    请求的方法
+            URL: string类型   请求的地址
+            isAsyn: boolean类型
+            指定采用同步还是异步的方式同步(false)如果是异步(true)
+    4.发送请求
+        send();
+        语法: xhr.send(body);
+        body: 请求主体
+        如果没有请求主体那么body为null;
+        如果有请求主体那么body为请求的主体数据;

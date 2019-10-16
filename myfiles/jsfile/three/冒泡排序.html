@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a, b, c;
+        var arr = [23, 9, 78, 6, 45];
+        for (var i = 1; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - i; j++) {
+                //数字位置的交换
+                // 交换两个数字的位置: 异或换位
+                // a = arr[j];
+                // b = arr[j+1];
+                // c = a > b ? b : a;
+                // b = a;
+                // a = c;
+                // arr[j]  arr[j + 1]
+
+                if (arr[j] > arr[j + 1]) {
+                    arr[j + 1] ^= arr[j];
+                    arr[j] ^= arr[j + 1];
+                    arr[j + 1] ^= arr[j];
+                    // arr[j] ^= arr[j + 1];
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

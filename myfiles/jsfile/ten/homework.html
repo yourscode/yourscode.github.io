@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ForEach</title>
+</head>
+<body>
+    <script>
+         var arr1 = [1,2,3,2,1];
+        var arr2 = [1,3,5,7,9]; 
+
+//兼容forEach
+/*         if(!Array.prototype.forEach){
+            Array.prototype.forEach = function(callBack){
+                for(var i = 0 ; i < this.length ; i++){
+                var    currentValue = this[0];
+                var    currentIndex = i;
+                var    currentArray = this;
+
+                    callBack.call(this,currentValue,currentIndex,currentArray);
+                } 
+            }
+        } */
+
+
+
+//兼容map
+/* if(!Array.prototype.map){
+            Array.prototype.map = function(callBack){
+
+                var newArray = new this.constructor
+                newArray.length = this.length;
+                for(var key in this){
+                    newArray[key] = this[key]; 
+                }
+
+                for(var i = 0 ; i < newArray.length ; i++){
+                var    currentValue = this[0];
+                var    currentIndex = i;
+                var    currentArray = this;
+
+                    callBack.call(this,currentValue,currentIndex,currentArray);
+                }
+                return  newArray;
+            }
+        } */
+
+
+
+
+
+
+        
+       arr2.forEach(function(elem,i,arr){
+           arr[i]  *= 2; 
+        // elem *= 2 
+        // console.log(elem);
+        // arr[i]  = elem *= 2 ;
+       })
+       console.log(arr2);
+
+
+      var arr3 = arr2.map(function(elem,i,arr){
+            return elem %2 == 1;
+       })
+       console.log(arr3);
+    //    console.log(arr1.constructor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>...</title>
+	<style>
+.btn {
+	display: inline-block;
+	padding: 6px 12px; margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400; line-height: 1.42857143;
+	text-align: center; vertical-align: middle;
+	cursor: pointer;
+	border:1px solid transparent; 
+}
+.btn-default {color: #333; background-color: #fff;
+	border:1px solid black;
+	outline-color: transparent;
+}
+
+
+	</style>
+</head>
+<body>
+  <h1>实现按钮组效果</h1>
+  <div class="btn-group">
+		<button class="btn btn-default">Left</button>
+		<button class="btn btn-default">Middle</button>
+		<button class="btn btn-default">Right</button>
+	</div>
+	<div style="clear:both"></div>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		$(".btn").css({"border-left":"none","float":"left"});
+		$("div>button:first-child").css({"border-left":"1px solid black","border-top-left-radius":"5px","border-bottom-left-radius":"5px"});	
+		$("div>button:last-child").css({"border-top-right-radius":"5px","border-bottom-right-radius":"5px"});	
+	</script>
+</body>
+</html>

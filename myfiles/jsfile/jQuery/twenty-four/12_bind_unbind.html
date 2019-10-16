@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>事件绑定</h1>
+	<button id="btn1">发射子弹</button>
+  <button id="btn2">获得奖励</button>
+	<button id="btn3">失去奖励</button>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		$("#btn1").click(function(){
+			console.log(".....");
+		})
+		function test(){
+			console.log("*****");
+		}
+		$("#btn2").click(function(){
+			alert("get award");
+			$("#btn1").bind("click",test)
+		})
+		$("#btn3").click(function(){
+			$("#btn1").unbind("click",test);
+		})
+	</script>
+ </body>
+</html>

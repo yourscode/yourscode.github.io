@@ -1,0 +1,98 @@
+模板字符串 : 代替  +  拼接字符串的
+什么: 为动态生成内容,而提前定义的字符串模板
+何时: 只要字符串拼接,一律使用模板字符串
+如何使用:  
+    1."反引号"包裹字符串模板
+        优点:支持换行,且不会和  ""   冲突
+    2.如果动态生成内容/js表达式,必须使用  ${}   包裹
+解构 : 简化批量赋值
+什么 : 将一个对象/数组,拆散到多个变量中
+何时: 只要在一个大的对象/数组中选取部分属性/元素
+如何: 
+    1.数组解构
+        下标对下标
+    2.对象解构
+        属性对属性
+    3.参数解构
+        属性对属性
+        传统参数存在的问题:固定个数,还固定先后顺序,无法灵活选择要传入的参数和不要传入的参数
+        解决: 定义函数时: function conn({port,user,upwd,db}){}
+        调用函数时 : conn({port:3306,upwd:1234})
+
+for  of  简化for循环: 
+    什么 : 依次遍历数组/类数组对象中每个元素的值
+    何时: 如果希望从头到尾遍历整个数组/类数组对象
+    如何 : for(let p of db){
+        p  //会依次取出db中每个商品
+    }
+
+class : 简化了面向对象(OOP)
+封装: 
+创建一个类型: 
+class Student{
+    constructor(sname,sage){
+        this.sname = sname;
+        this.age = sage;
+        intr(){}
+    }
+}
+继承: 
+    class Flery{
+
+    }
+    class child extends Father{
+        constructor(参数列表)
+        super(参数列表)   //指向父类型构造函数且自动替换this
+    }
+静态方法:
+    class User{
+        constructor(){}
+        save(){  }    //   放到原型对象里面的实例方法
+        static findOne(){}   //放到构造函数中的静态方法
+        return new User();
+    }
+
+    var user = new User();
+    user.save();  //调用实例方法
+    User.findOne();   //调用静态方法
+    User.save();      // 不能调用,报错
+    user.findOne();    //报错
+
+promise: 代替异步调用中的回调函数
+异步调用的回调函数问题:  回调地狱
+过早的将下一个函数过早的提交给上一个函数
+何时: 只要多个异步调用必须先后执行时,就用Promise
+何时: 定义函数时:  
+Function prev(){
+    var promise = new Promise(function(open,errHandler){
+        //prev 的逻辑
+        //当prev 执行完
+        //如果执行错误
+        //open()
+        //否则 
+        //调用  errHandler
+    })
+    return promise;
+}
+prev().then(下一个函数).catch(function(err){错误代码})
+//  next一定会等到prev执行完,open后才能执行
+    等待多个异步任务完成后才执行,
+    要求: 每个异步任务都是一个Promise对象,
+    调用时 : Promise.all([task1(),task2(),....]).then(function(){})
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>_______________DOM_______________<<<<<<<<<<<<<<<<<<<<<<<
+    1.什么是DOM:  Document Object Model
+    专门操作网页内容的API
+    DOM标准是由 W3C制定的DOM API标准
+    为什么: 为了统一所有浏览器操作网页内容的API所以出台了DOM
+    何时: 只要操作网页内容都用DOM的API
+        几乎所有浏览器100%兼容DOM标准
+    DOM API属于原生JS : 无需下载,浏览器中已经定义好了,可以直接使用,
+    可以执行五大操作: 增 , 删 , 改 , 查 , 事件绑定  
+
+DOM tree
+    什么是: 网页中所有内容,在内存中,都是保存在一颗树形结构中
+    为什么:    平级关系的树形结构

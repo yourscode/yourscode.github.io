@@ -1,0 +1,55 @@
+jQuery
+    什么是第三方开发,执行DOM操作的,极简化的
+    第三方: 下载才能使用
+    执行DOM操作: 增删改查,事件绑定
+    学习jQuery还是在学习DOM
+    极简化:jQuery是DOM操作的终极简化
+    函数库: jQuery中一切都是用函数来解决问题
+    为什么要用它?: 1,DOM操作的终极简化
+                  2.解决了大部分浏览器兼容性问题 
+    如何使用: 下载: 版本
+        1.x : 兼容旧的浏览器
+            未压缩版本:具有完整的注释,代码格式,有意义的变量名
+            优点: 可读性好,便于学习和理解原理
+            缺点: 文件大,传输慢
+            压缩版: 去掉所有的注释,去掉所有代码格式,极简化
+            优点: 体积小传输快
+            缺点可读性差
+        2.x : 不再兼容旧浏览器
+        3.x : 也不再兼容旧浏览器,增加了新的特点:
+            1.所有jquery 3.x的代码都运行在严格模式下,
+            2.用for...of代替了each
+            3.requestAnimationFrame()
+            4.兼容Promise
+将jQuery文件引入网页中
+1.引入项目本地的jquery.js文件
+2.引入CDN网络中的jquery.js文件
+    CDN内容分发网络可以根据每个客户端居服务器网络状况,选择最优的服务器下载资源
+    jQuery的原理
+        引用jQuery.js向全局添加了一种新的类型jQuery
+        包含:
+        构造函数:创建jQuery类型的子对象
+        原型对象:保存所有jQuery类型的子对象公用API
+        如果要使用jQuery简化版API,必须先创建jQuery类型的子对象
+        var jQuery = jQuery();  $();   fn();  //原型对象
+        var jQuery=jQuery("选择器);
+        jQuery对象,简化版API();
+        说明: 
+            1.不用new : jQuery将new封装在函数里面了
+            2.jQuery先用选择器找到DOM元素然后再创建jQuery对象,将找到的DOM元素放入jQuery中
+            为什么: DOM元素不是jQuery不是jQuery类型的子对象,无法使用jQuery简化API
+            何时: 只要想用简化版的API,必须将DOM元素封装到jQuery对象中
+    什么是jQuery对象?   可保存多个找到的DOM元素的类数组对象
+    简写: 
+    1.window.$=jQuery   使用$等效使用jQuery,将来创建jQuery类型的子对象:直接$("选择器");
+    2.jQuery.fn=jQuery.prototype   使用fn,代替prototype
+    将来为jQuery类型添加自定义API:
+    直接  jQuery.fn.函数名 = function(){}
+    如果已经提前获得了一个DOM元素,可直接用$(DOM元素)
+    jQueryAPI的三大特点:
+        1.自带遍历效果: 对jQuery类数组对象调用一次简化版API,等效于对集合中每个DOM元素分别调用一次API
+        2.一个API两用,没有新值,默认获取旧属性值,
+        3.每个API返回了正在执行的那个jquery对象
+1.按选择查找:
+    var
+    

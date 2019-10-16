@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        练习计算现在距离建军节还有多少天?
+        <h1 id = "h1"></h1>
+
+        <script>
+
+
+            function task(){
+
+            
+
+            var now = new Date();
+            // console.log(now);
+            var jj = new Date("2019/08/01");
+            // console.log(jj);
+            var ms = jj - now;
+            // console.log(ms);
+            var days = parseInt(ms/1000/3600/24);
+            var hour = parseInt((ms/1000)%(3600*24)/3600);
+            var min = parseInt((ms%(1000*60)));
+            var second =  parseInt(((ms%(1000*60))/1000));
+            // console.log("距离建军节还有"+days +"天" + hour+"时"+ second +"秒");
+
+            h1.innerHTML=("距离建军节还有"+days +"天" + hour+"时"+ min+"分"+ second +"秒");
+
+        }
+        task();
+        setInterval(task,1000);
+
+        </script>
+</body>
+</html>

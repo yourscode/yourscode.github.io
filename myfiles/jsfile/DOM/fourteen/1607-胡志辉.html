@@ -1,0 +1,84 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc;width: 197.6px}
+	thead>tr>td{font-weight:bold}
+</style>
+
+</head>
+<body>
+	<div id="data">
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25},
+    {"ename":"huzhihui","salary":15000,"age":22}
+  ];
+  var div = document.getElementById("data");
+  var table = document.createElement("table");
+  div.appendChild(table);
+  var thead = document.createElement("thead");
+  table.appendChild(thead);
+  var tr = document.createElement("tr");
+  thead.appendChild(tr);
+  var th0 = document.createElement("th");
+  var th1 = document.createElement("th");
+  var th2 = document.createElement("th");
+
+    var tbody = document.createElement("tbody");
+    div.appendChild(tbody);
+
+  tr.appendChild(th0);
+  tr.appendChild(th1);
+  tr.appendChild(th2);
+  console.log(json.ename);
+  var ename="ename";
+ var salary = "salary";
+ var age = "age";
+    th0.innerHTML = ename;
+    th1.innerHTML = salary;
+    th2.innerHTML = age;
+
+    var html = "";
+    for(var i = 0; i < json.length ; i++){
+      html +=`<tr>
+                <td>${json[i].ename}</td>
+                <td>${json[i].salary}</td>
+                <td>${json[i].age}</td>
+            </tr>`;
+    }
+    tbody.innerHTML = html;
+    
+  </script>
+</body>
+</html>

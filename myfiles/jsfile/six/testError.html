@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var num = parseFloat(prompt("请输入一个小数: "));
+        var d= parseInt(prompt("请输入小数位数"));
+     if(d > 0 && d < 100){ //try{
+        var result = num.toFixed(d);
+        document.write("四舍五入的结果是"+result+"<br>");
+    }else{//}catch{
+        alert("输入的参数得在0~100之间!");
+   }// }
+        document.write("程序继续运行...");
+    </script>
+</body>
+</html>

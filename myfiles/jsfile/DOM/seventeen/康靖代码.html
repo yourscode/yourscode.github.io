@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>倒计时</title>
+  <meta charset="utf-8"/>
+  <style>
+    .pause{
+      width:12px; height:25px; background:#fff;
+      border:0;
+      border-left:2px solid #000;
+      border-right:2px solid #000;
+    }
+    .play{
+      width:0; padding:0; height:25px; background:#fff;
+      border:12px solid #fff;
+      border-left:12px solid #000;
+    }
+  </style>
+ </head>
+
+ <body>
+ <h1>
+     <span id="time"></span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<button id="btn" class="pause"></button>
+  </h1>
+ 
+ <script> 
+     var oBtn=document.getElementById('btn');
+         var span=document.getElementById("time");
+    var end=new Date("2019/08/09 09:27:00");
+   function task(){
+    
+       var  now=new Date();
+       var ms=parseInt((end-now)/1000);
+ if(ms>0){
+        /*var d=parseInt(ms/3600/24);
+    if(d<10) {d="0"+d;}
+       var h=parseInt(ms%(3600*24)/3600);
+   if(h<10) {h="0"+h;}
+       var m=parseInt(ms%3600/60);
+   if(m<10){m="0"+m;}    
+      var  s= ms%60;
+   if(s<10) {s="0"+s;} */
+     var day = parseInt(ms/60/60/24);
+      var hour = parseInt(ms/60/60%24);
+      var min = parseInt(ms/60%60);
+      var sec = parseInt(ms%60);
+       span.innerHTML="距离中秋节还有:"+day+"天"+hour+"小时"+min+"分"+sec+"秒";
+ }  
+
+    else{
+      clearInterval(timer);
+      span.innerHTML='中秋快乐';
+    }
+  }
+     task(); 
+     timer=setInterval(task,1000);
+ 
+     oBtn.onclick=function (){
+   if(oBtn.className=='pause'){
+       clearInterval(timer);
+       timer = null;
+        oBtn.className="play";
+       }else{
+         timer = setInterval(task,1000);
+         oBtn.className="pause";
+       }
+     }
+  </script>
+ </body>
+</html>

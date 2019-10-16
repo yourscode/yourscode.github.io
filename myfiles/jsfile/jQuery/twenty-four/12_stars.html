@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      /* position: relative; */
+      /* position: absolute; */
+      transform: scale()
+      
+    }
+    img { position: relative;  }
+  </style>
+</head>
+<body>
+<img id="s1" src="img/star.png"><br/>
+<img id="s2" src="img/star.png"><br/>
+<img id="s3" src="img/star.png"><br/>
+<img id="s4" src="img/star.png"><br/>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+  /*
+  s1在屏幕左上角的小星星， 点击后从左移动到屏幕右边
+  s2在屏幕左上角的小星星，点击后从左移动到屏幕右边，再移动到下边——走直角
+  s3在屏幕左上角的小星星，点击后从左上角移动到屏幕右下边，走斜线
+  s4点击小星星，变大、变淡....  直至消失
+*/
+
+$("#s1").click(function(){
+if($(this).is(":not(:animated)")){
+  $("#s1").css("position","absolute").animate(
+    {right : 0},2000);
+}else{
+  $(this).stop();
+}
+  
+})
+$("#s2").click(function(){
+
+  if($(this).is(":not(:animated)")){
+    $("#s2").css("position","absolute").animate({right : 0},4000,"linear").animate({bottom : 0},2000,"linear");
+}else{
+  $(this).stop(true);
+}
+// $("#s2").css("position","absolute").animate({right : 0},2000).animate({bottom : 0},2000);
+})
+$("#s3").click(function(){
+
+$("#s3").css("position","absolute").animate({marginLeft : offset,
+  marginTop : offsetheight
+},2000);
+})
+$("#s4").click(function(){
+console.log(2);
+$("#s4").animate({width: 300,height : 300},2000).animate({opacity:0},3000);
+},function(){
+  $(this).fadeOut();
+})
+</script>
+</body>
+</html>

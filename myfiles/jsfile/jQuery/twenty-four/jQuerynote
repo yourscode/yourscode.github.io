@@ -1,0 +1,87 @@
+事件绑定:
+    笔试: jquery里面共有几件事件绑定事件,分别是
+    bind/unbind("事件名",handler)
+    单纯的简化addEventListener/removeEventListener
+    unbind()  三个事件重载
+    unbind("事件名",handler)移除一个事件上绑定的一个指定的处理函数
+    unbind("事件名")移除一个事件上绑定的所有的处理函数
+    unbind()  移除所有事件上绑定的所有处理函数
+    one()   特殊的bind,绑定事件后只触发一次,执行后自动解绑
+    事件委托: delegate()  其实就是简化版的利用冒泡
+        .delegate("selector","事件名",handler)
+        1,"selector"  用于筛选符合条件的子元素才能触发事件
+        2,又让this重新指向e.target
+    
+***笔试 : bind和delegate的区别
+1.绑定位置:
+    .bind直接绑定在目标子元素上面
+    .delegate()  只在父元素上面绑定
+事件的监听个数不一样
+    .bind()  导致更多的监听
+    .delegate()   只有一个监听
+2. one()  特殊的bind()  绑定之后只会触发一次
+对动态添加的新元素
+    .bind()必须重复绑定,才能让子元素获得事件
+    .delegate()  无需反复绑定,新元素也可以获得父元素上的事件
+undelegate  解绑父元素上共享的处理函数
+
+    5.on/off   统一了bind 和 delegate
+    重载: 
+    .on("事件名",handler)   代替bind()
+    .on("事件名","selector",handler)   代替delegate()
+
+    6.click(handler)
+        1,不能代替delegate简化利用冒泡
+        2,不是所有事件都有简化
+
+界面加载后就提前执行:
+仅在DOm内容(html,js)加载后就执行: 
+何时: 如果一些初始化操作,不必等待css和图片加载后执行
+如何: $(document).ready(function(){})
+简化: $().ready(function(){})
+更简化:  $(function(){})
+
+
+应该放在DOMContenLoad
+页面加载后执行在所有界面内容(js,html,图片,)加载后执行
+window.onload = function(){
+
+}
+何时: 如果一个操作,必须等待css,图片加载后图片加载后执行应该放在onload里面
+$(window).load(function(){...})
+
+笔试题: jquery中$的原理
+    1,如果传入一个选择器字符串,则查找并创建jq对象
+    2,如果传入DOM元素,则封装DOM元素为jq对象
+    3,如果传入一个html代码片段,则创建元素
+    4,如果传入函数,就绑定DOM内容加载后执行
+
+mouseover    mouseout
+问题:反复进出子元素,会反复触发父元素的事件
+解决:  mouseenter   mouseleave
+即使反复进出子元素,也不会反复触发父元素上的事件
+如果同时绑定enter和leave可以简写为hover
+$().hover(
+    function test1(){},
+    function test2(){}
+)
+模拟触发: 手动调用一个元素的处理函数
+如何? $().trigger("事件名")
+
+动画:
+    简单动画:
+     1,显示隐藏 : .show()  .hide()    .toggle();
+     2,上滑动下滑动 : slideUp()    .slideDown()   .slideToggle()
+     3,淡入淡出效果 : .fadeIn()   .fadeOut()  fadeToggle()
+强调:不带参数,用display 瞬间显示隐藏  如果希望有动画效果: 应该加入动画效果
+问题:  1,如果用js程序的定时器实现的,效率不如CSS,
+      2,动效是固定的,几乎不可以维护
+      万能动画: 可对任意数值类型的CSS属性添加动画效果
+      何时: 只要用程序控制修改CSS属性值,实现动画效果
+      如何: 
+      $(...).animate({
+          css属性值: 目标值
+      },持续时间)
+      所有API的最后一个参数都是回调函数,在动画结束后自动执行,回调函数中的this指正在播放动画的当前元素
+      排队和并发
+        1,并发: 多个CSS属性同时发生变化

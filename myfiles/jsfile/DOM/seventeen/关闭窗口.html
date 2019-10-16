@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时自动关闭界面</title>
+</head>
+<body>
+    <span>5秒后自动关闭</span>
+    <br>
+    <a href="javascript:stop();">留在本界面</a>
+    <script>
+        // setTimeout(function(){
+        //     // window.close();
+        // },5000)
+        // var span = document.querySelector("span");
+        // span.innerHTML = "second"+"秒后自动关闭本界面";
+            var span = document.getElementsByTagName("span")[0];
+        function task(){
+            var n = parseInt(span.innerHTML);
+            console.log(n);
+            n--;
+
+            if(n>0){
+                span.innerHTML = n+"秒后自动关闭";
+                // setTimeout(task,1000)
+            }else{
+                close();
+            }
+        }
+        task();
+        var timer = setInterval(task,1000);
+        function stop(){
+            clearInterval(timer);
+            timer = null;
+            span.innerHTML = "";
+        }
+    </script>
+</body>
+</html>

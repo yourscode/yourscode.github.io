@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            table,tr,td{
+                width: 800px;
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+            }
+        </style>
+</head>
+
+<body>
+    <table>
+        <h3>hello!</h3>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $.ajax({
+            url: "/product/list",
+            type: "get",
+            success: function (result) {
+                //    var res = JSON.parse(result);
+                var res = result.data;
+                console.log(res);
+                var html = "";
+                for (var key of res) {
+                        html += `<tr>
+            <td>${key.lid}</td>
+            <td>${key.title}</td>
+            <td>${key.price}</td>
+            <td>${key.spec}</td>
+        </tr>`
+                    
+                }
+
+
+                $("tbody").html(html);
+            }
+        })
+    </script>
+</body>
+
+</html>

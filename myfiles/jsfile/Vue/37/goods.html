@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <table v-cloak>
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>数量</th>
+                <th>价格</th>
+                <th>小计</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  v-for="(item,index) in goods">
+                <td>{{item.name.length>5 ? item.name.substring(0,5)+'...' : item.name}}</td>
+                <td>{{item.number>10 ? item.number : '0'+item.number}}</td>
+                <td>{{item.price}}</td>
+                <!-- <td>{{item.price * item.number}}</td> -->
+                <td>${{getSum(index)}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                sum : 0,
+              goods :  [
+                {name : 'iphone',number : 12,price : 6988,sum : 0},
+                {name : 'sansung',number : 1,price : 7388,sum : 0},
+                {name : 'huawei',number : 2,price : 4999,sum : 0}
+                ]
+            },
+            methods : {
+                getSum(index){
+                    return this.goods[index].number * this.goods[index].price;
+                    // return index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

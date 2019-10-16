@@ -1,0 +1,20 @@
+过滤器(管道)
+用来对数据进行筛选,整合,过滤等,返回一个处理后的参数,过滤
+创建: 
+   Vue.filter('myFilter',function(value,arg){
+       //value 是要过滤的数据
+       //arg   是调用过滤器时所传递的参数
+       //return  把过滤的结果返回
+   })
+
+   调用: {{msg | my-filter(true)}}
+   test : 是0继续判断传递的参数是true,返回中文的 男 否则返回英文 'boy'
+        : 是1继续判断传递的参数是true,返回中文的 女 否则返回英文 'girl'
+
+生命周期函数:
+    初始化 (beforeCreate/created)
+    created后,才可以使用data中的数据
+    挂载到视图 (beforeMounnt/mounted)
+    mounted后,编译的模板内容才会出现在视图中
+    数据更新  (beforeUpdate/Updated)
+    销毁  (beforeDestroy/destroyed)

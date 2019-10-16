@@ -1,0 +1,123 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc;width: 197.6px}
+	thead>tr>td{font-weight:bold}
+</style>
+
+</head>
+<body>
+	<div id="data">
+        <!-- <tbody> -->
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        <!-- </tbody> -->
+    </div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25},
+    {"ename":"huzhihui","salary":15000,"age":22}
+  ];
+  var div = document.getElementById("data");
+  var table = document.createElement("table");
+  // div.appendChild(table);
+  /* var thead = document.createElement("thead");
+  table.appendChild(thead); */
+  var thead = table.createTHead();   //简化
+/*   var tr = document.createElement("tr");
+  thead.appendChild(tr); */
+  var tr = thead.insertRow();  //简化
+ /*  var tbody = document.createElement("tbody");
+    table.appendChild(tbody); */
+    var tbody = table.createTBody();    //简化
+/*   var th0 = document.createElement("th");
+  var th1 = document.createElement("th");
+  var th2 = document.createElement("th");
+  tr.appendChild(th0);
+  tr.appendChild(th1);
+  tr.appendChild(th2);
+  console.log(json.ename);
+  var ename="ename";
+ var salary = "salary";
+ var age = "age";
+    th0.innerHTML = ename;
+    th1.innerHTML = salary;
+    th2.innerHTML = age; */
+
+    for(var f in json[1]){
+      /* var th = document.createElement("th");
+      tr.appendChild(th); */
+      
+      var th = tr.insertCell();
+      th.innerHTML = f;
+      console.log(f);
+      // insertCell()
+    }
+tr.insertCell().innerHTML = "delete";
+for(var a of json){
+  var jso = a;
+/*   var tr = document.createElement("tr");
+  // tbody.appendChild(tr);
+  tbody.insertBefore(tr,tbody.children[0]); */
+  var tr = tbody.insertRow(0);   //简化
+  for(var jo in jso){
+  /* var td = document.createElement("td");
+  tr.appendChild(td); */
+  var td = tr.insertCell();   //简化
+  td.innerHTML = jso[jo];
+  
+}
+var td = tr.insertCell();
+var button = document.createElement("button");
+button.onclick = function(){
+  // this.parentNode.removeChild(td);
+  var ename = this.parentNode.parentNode.children[0].innerHTML;
+  // if(confirm("确定删除?" + this.parentNode.parentNode.firstChild.innerHTML)){
+  if(confirm(`确定删除${ename}吗?`)){
+  table.deleteRow(this.parentNode.parentNode.rowIndex);
+}
+}
+button.innerHTML = "&nbsp;×&nbsp;";
+td.appendChild(button);
+}
+
+/*    var html = "";
+     for(var i = 0; i < json.length ; i++){
+      html +=`<tr>
+                <td>${json[i].ename}</td>
+                <td>${json[i].salary}</td>
+                <td>${json[i].age}</td>
+            </tr>`;
+    }
+    tbody.innerHTML = html; */
+    
+    div.appendChild(table);  //减少DOM树的使用次数
+  </script>
+</body>
+</html>

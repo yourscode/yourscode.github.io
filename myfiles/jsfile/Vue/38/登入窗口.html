@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <!--   <style>
+        * {
+            margin: 0;
+            bottom: 0;
+        }
+
+        body {
+            background-color: #999999;
+        }
+
+        .outer {
+            width: 300px;
+            height: 300px;
+            margin: 200px auto;
+            background-color: #fff;
+        }
+    </style> -->
+</head>
+
+<body>
+
+    <div id="app">
+        <cpnall></cpnall>
+    </div>
+
+    <template id="yh">
+        <div>
+            用户名:<input type="text" name="">
+        </div>
+    </template>
+    <template id="mima">
+        <div>
+            密码:<input type="password" name="">
+        </div>
+    </template>
+
+    <template id="dr">
+        <div>
+            <input type="button" name="" value="登入">
+        </div>
+    </template>
+    <template id="zc">
+        <div>
+            <input type="button" name="" value="注册">
+        </div>
+    </template>
+
+    <template id="all">
+        <div>
+            <cpn1></cpn1>
+            <cpn2></cpn2>
+            <cpn3></cpn3>
+            <cpn4></cpn4>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.component('cpn1', {
+            template: '#yh'
+        })
+        Vue.component('cpn2', {
+            template: '#mima'
+        })
+        Vue.component('cpn3', {
+            template: '#dr'
+        })
+        Vue.component('cpn4', {
+            template: '#zc'
+        })
+
+        Vue.component('cpnall', {
+            template: '#all',
+            components: {
+
+            }
+        })
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: 'hello'
+            }
+        })
+    </script>
+</body>
+
+</html>

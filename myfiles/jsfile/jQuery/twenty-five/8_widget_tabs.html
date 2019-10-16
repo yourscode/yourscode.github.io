@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Tabs</h1>
+	<h3>标签页组件</h3>
+	
+	<div id="my-tabs">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#tc10">十元套餐</a></li>
+			<li role="presentation" class="active"><a href="#tc20">二十元套餐</a></li>
+			<li role="presentation" class="active"><a href="#tc30">三十元套餐</a></li>
+		</ul>
+		<div class="tab-content">
+		<div id="tc10" role="tabpanel" class="tab-pane active" id="home">
+			<p>十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum atque ab omnis sapiente maxime voluptatem dolor eligendi excepturi vero unde odit id. Tempore quas esse impedit et omnis optio.</p>
+		</div>
+		<div id="tc20" role="tabpanel" class="tab-pane" id="profile">
+			<p>二十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum atque ab omnis sapiente maxime voluptatem dolor eligendi excepturi vero unde odit id. Tempore quas esse impedit et omnis optio.</p>
+		</div>
+		<div id="tc30" role="tabpanel" class="tab-pane" id="messages">
+			<p>三十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum atque ab omnis sapiente maxime voluptatem dolor eligendi excepturi vero unde odit id. Tempore quas esse impedit et omnis optio.</p>
+		</div>
+	</div>
+</div>
+	
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<!-- <script src="js/jquery-ui.js"></script> -->
+	<script src="js/bootstrap.js"></script>
+	<script>
+		// $("#my-tabs").tabs({
+		// 	event:"mouseover"
+		// });
+	</script>
+ </body>
+</html>

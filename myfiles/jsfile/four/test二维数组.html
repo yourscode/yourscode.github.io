@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showCity(){
+            var sf = ["河北","北京","湖北"];
+            var city = [
+                ["保定","石家庄","张家口"],
+                ['昌平','朝阳','海淀'],
+                ['武汉','宜昌','汉口']
+            ];
+            var input = prompt("请输入您要找到的省份: ");
+            var index = -1;
+            for(var i = 0; i < sf.length ; i++){
+                if(input == sf[i]){
+                    index = i;
+                    break;
+                }
+            }
+            if(index == -1){
+                alert("您输入的省份没找到,请重新输入: ");
+            }
+            else{
+                alert(city[index]);
+            }
+        }
+        showCity();
+    </script>
+</body>
+</html>

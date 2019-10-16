@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>开始使用layui</title>
+    <link rel="stylesheet" href="./layui/layui/css/layui.css">
+</head>
+
+<body>
+
+    <!-- 你的HTML代码 -->
+
+    <button type="button" class="layui-btn">一个标准的按钮</button>
+    <a href="http://www.layui.com" class="layui-btn">可跳转的按钮</a>
+    <button class="layui-btn layui-btn-primary">原始</button>
+    <button class="layui-btn">默认按钮</button>
+    <button class="layui-btn layui-btn-normal">百搭按钮</button>
+    <button class="layui-btn layui-btn-radius layui-btn-warm">暖色按钮</button>
+    <button class="layui-btn layui-btn-danger">警告按钮</button>
+    <button class="layui-btn layui-btn-disabled">警用按钮</button>
+    <hr>
+
+    <button class="layui-btn layui-btn-xs layui-btn-danger">迷你按钮,警告</button>
+    <button class="layui-btn layui-btn-xs layui-btn-primary">迷你默认</button>
+    <hr>
+
+    <div class="layui-btn-group">
+        <button type="button" class="layui-btn layui-btn-sm">
+            <i class="layui-icon">&#xe654;</i>
+        </button>
+        <button type="button" class="layui-btn layui-btn-sm">
+            <i class="layui-icon">&#xe640;</i>
+        </button>
+        <button class="layui-btn layui-btn-sm" type="button">
+            <i class="layui-icon">&#xe642;</i>
+        </button>
+        <button type="button" class="layui-btn layui-btn-sm">
+            <i class="layui-icon">&#xe615;</i>
+        </button>
+    </div>
+    <hr>
+
+    <!-- 表格 -->
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>年级</th>
+                <th>修改</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>闲心</td>
+                <td>2016-11-29</td>
+                <td>人生就像一场修行</td>
+                <td>人生就像一场修行</td>
+                <td>
+                    <div class="layui-btn-group">
+                        <button type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe654;</i>
+                        </button>
+                        <button type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe640;</i>
+                        </button>
+                        <button class="layui-btn layui-btn-sm" type="button">
+                            <i class="layui-icon">&#xe642;</i>
+                        </button>
+                        <button type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe615;</i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>许梦</td>
+                <td>2019/10/10</td>
+                <td>于千万人之中遇见你所遇见的人,于千万年之中...</td>
+                <td>人生就像一场修行</td>
+                <td>
+                    <div class="layui-btn-group">
+                        <button id="add" type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe654;</i>
+                        </button>
+                        <button id="del" type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe640;</i>
+                        </button>
+                        <button id="modi" class="layui-btn layui-btn-sm" type="button">
+                            <i class="layui-icon">&#xe642;</i>
+                        </button>
+                        <button id="find" type="button" class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe615;</i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./layui/layui/layui.js"></script>
+    <script src="./layui/layui/layui.all.js"></script>
+    <script>
+        //一般直接写在一个js文件中
+        layui.use(['layer', 'form'], function () {
+            var layer = layui.layer
+                , form = layui.form;
+
+            // layer.msg('Hello layui');
+        });
+
+    </script>
+
+    <!-- http://1.119.195.59:85/api/AppInfo/DowloadFile -->
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $("#find").click(function () {
+            console.log(1);
+            $.ajax({
+                // url: 'http://1.119.195.59:85/api/v1/Base/Get',
+                url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/GetList',
+                contentType: "application/json",
+                data: {
+                    DataBase: "train",
+                    Type: "Table",
+                    TableView: "ZZ",
+                    Order: "Id",
+                    PageIndex: 1,
+                    PageSize: 10,
+                    Sort: "desc",
+                    Conditions: []
+                },
+                type: "GET",
+                headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5c2lkIjoiNTUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIwMDAxIiwidW5pcXVlX25hbWUiOiLnrqHnkIblkZgiLCJuYW1laWQiOiI2NiIsImdyb3Vwc2lkIjoiNjMwMTAwMDAwMDAwIiwiZ2l2ZW5fbmFtZSI6Iuilv-WugeW4guWFrOWuieWxgCIsInJvbGUiOiIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IjciLCJlbWFpbCI6Ind5dCIsImNlcnRzZXJpYWxudW1iZXIiOiJjZW50ZXIiLCJmYW1pbHlfbmFtZSI6IumFjee9rueuoeeQhuS4reW_gyIsImFjdG9ydCI6IndlYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwMTkvMTAvMTEgNjoyNDo1NiIsIm5iZiI6MTU3MDc3MTQ5NiwiZXhwIjoxNTcwNzc1MDk2LCJpYXQiOjE1NzA3NzE0OTYsImlzcyI6Ind3dy5jcmV0cy5jb20uY24iLCJhdWQiOiJ3d3cuY3JldHMuY29tLmNuIn0.vWiNEPCad6q6AfDI3ImWXNLIL1kY5rqLpA8jEToyJUw ' },
+                success: function (data) {
+                    console.log(data);
+                    console.log(data.Data);
+                    var res = data.Data;
+                    res = JSON.parse(res).rows;
+                    console.log(res);
+
+                    for (let key of res) {
+                        console.log(key);
+
+                    }
+
+                }
+
+            })
+        })
+    </script>
+
+    <script>
+        /* layer.prompt({
+            formType: 2,
+            value: '初始值',
+            title: '请输入值',
+            area: ['800px', '350px'], //自定义文本域宽高
+            content: `姓名: <input type="text"><br>
+    年龄: <input type="text"><br>
+    年级: <input type="text">` //这里content是一个普通的String
+        }, function (value, index, elem) {
+            alert(value); //得到value
+            $(".layui-layer-btn0").click(function(){
+                console.log(1);
+                
+            })
+            layer.close(index);
+        }); */
+
+       /*  layer.open({
+  type: 1, 
+  content: '传入任意的文本或html' //这里content是一个普通的String
+}); */
+
+if(confirm("删除成功!")){
+    window.location.reload();
+}
+
+
+    </script>
+    
+</body>
+
+</html>

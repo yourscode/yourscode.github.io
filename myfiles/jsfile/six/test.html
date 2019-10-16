@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 练习: 入职时间,合同到期时间,续签日期,如果是周六减一,如果是周日减二,输入入职到期 -->
+    <script>
+        //入职时间
+        var hdate =new Date("2019/3/14");
+        //复制入职时间到结束时间
+        var enddate = new Date(hdate);
+        //将结束时间加三
+        enddate.setFullYear(enddate.getFullYear() + 3);
+        //复制结束时间到续签时间
+        var rdate = new Date(enddate);
+        //续签合同 -1
+        rdate.setMonth(rdate.getMonth() - 1);
+        //如果续签日是周六   -1
+        if(rdate.getDay() == 6){
+            rdate.setDate(rdate.getDate() - 1);
+        }else if(rdate.getDay() == 0){
+        //如果续签日是周日   -2
+        rdate.setDate(rdate.getDate() - 2);
+        }
+        //输出
+        console.log(hdate.toString());
+        console.log(enddate.toLocaleString());
+        console.log(rdate.getDay());
+    </script>
+</body>
+</html>

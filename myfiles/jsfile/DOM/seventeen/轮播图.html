@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #slider{
+      width:200px; height:150px;
+      position:relative;
+      border:1px solid #555;
+      margin: 100px auto;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    #slider>img{
+      position:absolute; top:0; left:0;
+      opacity:0;
+      transition:all .5s linear;
+    }
+    #slider>img.show{  opacity:1; z-index: 10; }
+    p{
+      margin: 0 auto;
+      width: 400px;
+      height: 200px;
+      box-sizing: border-box;
+        text-align: center;
+        display: flex;
+    }
+    #a,#b{
+        width: 200px;
+        /* height: 200px; */
+        /* margin: 0 auto; */
+    }
+  </style>
+</head>
+<body>
+<div id="slider">
+  <img src="images/1.jpg" class="show" alt="万紫千红"/>
+  <img src="images/2.jpg" alt="黄土高坡"/>
+  <img src="images/3.jpg" alt="花团锦簇"/>
+  <img src="images/4.jpg" alt="海底生物"/>
+</div>
+      <p>
+          <span id="a">&lt;</span>
+          <span id="b">&gt;</span>
+      </p>
+<script>
+    // console.log(oImg);
+    var oImgs = document.querySelectorAll("img");
+    function test(){
+    var oImg = document.querySelector("img[class=show]");
+        if(oImg.nextElementSibling){
+            oImg.className = "";
+            oImg.nextElementSibling.className = "show";
+        }else{
+            oImg.className = "";
+        //    oImg.parentNode.children[0].className = "show";
+           oImgs[0].className = "show";
+        }
+    }
+    var timer = setInterval(test,1000);
+/*     for(var key of oImgs){
+        key.onmouseover = function(){
+            clearInterval(timer);
+            timer = null;
+        }
+        key.onmouseout =function(){
+            timer = setInterval(test,1000);
+        }
+
+    } */
+
+    slider.onmouseover=function(){
+      clearInterval(timer);
+      console.log(timer);
+      timer=null;
+    }
+    slider.onmouseout=function(){
+      timer=setInterval(test,1000);
+      console.log(timer);
+    }
+
+    for(var key of oImgs){
+        key.onclick = function(){
+            console.log("好疼");
+            console.log(this.alt);
+        }
+    }
+</script>
+</body>
+</html>

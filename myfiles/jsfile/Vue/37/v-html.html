@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <h1 v-html="message1"></h1>
+    <h1 v-text="message1"></h1>
+    <h3 v-for="n in number">{{n}}</h3>
+    <h3 v-for="item in string">{{item}}</h3>
+</div>
+        <script src="../js/vue.js"></script>
+        <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                message : "helloworld",
+                message1 : "hello<br>world",
+                number : 10,
+                string : 'hello'
+            }
+        })
+    </script>
+</body>
+</html>

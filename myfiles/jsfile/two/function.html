@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <input type="button" value="计算结果" onclick="sum();">
+    <script>
+        var num = prompt("请输入两个整数用逗号隔开: ");
+        
+        function sum(a,b){
+            result = a +b;
+            console.log(result);
+        }
+    
+    </script> -->
+
+    <!-- <input type="text" id="i1">+<input type="text" id="i2">
+    <input type="button" id="i3" value="计算" onclick="sum()">
+
+    <script>
+        
+        var a = document.getElementById("i1");
+        // a = a.innerHTML;
+        var b = document.getElementById("i2");
+        // b = b.innerHTML;
+        function sum(){
+            console.log(Number(a.value) + Number(b.value));
+        }
+    </script> -->
+
+    <!-- 定义一个可以接受三个数字的函数并输出最大值: -->
+
+    <script>
+        function getMax(a,b,c){
+            var Max;
+            Max = a;
+            Max > b ? Max : Max = b;
+            Max > c ? Max : Max = c;
+            return Max;
+        }
+        var big = getMax(5,9,7);
+        console.log(big);
+    </script>
+
+</body>
+</html>

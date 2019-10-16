@@ -1,0 +1,67 @@
+优化: 尽量减少操作DOM树的次数,
+为什么: 因为HTML界面加载原理
+html ----> DOM tree
+        ↓
+
+    Render Tree ---> layout ---> paint
+
+       👆
+css --->cssRule
+只要修改DOM树,就会需要重新排版,重新绘制
+第二种方法: 如果同时添加父元素和子元素: 
+    应在内存中,先将所有子元素添加到父元素,最后再一次性将父元素添加到DOM tree上面
+第二种方法: 如果父元素已经在界面上了,需要添加多个平级子元素,先将子元素添加到文档片段中,
+        再将文档片段整体添加到界面中
+        什么是文档片段: 内存中,临时保存多个平级子元素的虚拟父级
+        何时使用: 添加多个平级子元素
+            步骤: 1.创建文档片段: 
+                var frag = document.createDocumentFragment();
+                2.将子元素添加到文档片段中
+                frag.appendChild(child);
+                3.将文档片段一次性添加到DOM 树上面
+                parent.appendChild(frag);
+        强调: fragment是活雷锋,将子元素添加到界面后自动释放,不占用界面位置
+        删除:  parent.removeChild(child);
+            cild.parentNode.removeChild(child);
+优化: 
+    HTML_DOM常用对象
+    image 创建: var img = new Image();
+    var option =  new Option();
+    //只有img 和 option可以new;
+    Slelect/Option
+    .SelectedIndex   获得select中当前选中的option的位置
+    .value 获得选择中的option的value属性
+        如果option没有value,则返回innerHTML代替
+    .options   获得select下所有option的集合
+    .options.length  获得select下面所有的option的个数
+      清空所有:  .options.length = 0;
+      方法: .add(option);   可以代替 appendChild
+        问题: 不支持fragment  //所以一般不使用add
+    .remove(i);
+    var option = new Option(text,value); 
+    frag.appendChild(new Option("请选择"));   ===  下面的
+    /* var option = document.createElement("option");
+             option.innerHTML = "请选择";
+             frag.appendChild(option); */
+    
+    table : 管着行分组
+        添加: var thead = table.createTHead();
+        var tbody = table.createTBody();
+        var tfoot = table.createTFoot();
+        删除: table.deleteTHead();
+        获取: table.thead        //因为只有一个thead
+                table.tbody[i]   //因为有好多tbody
+        行分组管着行:
+        创建: var tr = 行分组.insertRow(i);
+        固定套路: 在末尾追加新行:    .insertRow();
+                 在开头插入:    .insertRow(0);
+        删除: 1.  行分组.deleteRow(i);
+            强调: 因为用行分组删除,i要求是行分组内的下标位置
+            问题: 行分组内的位置无法自动获得
+            解决: 
+            2.table.deleteRow(tr.rowIndex);
+            获取: 行分组.rows[i];
+            行管着格
+            var td = tr.insertCell();
+            末尾追加新格:  tr.insertCell();
+            

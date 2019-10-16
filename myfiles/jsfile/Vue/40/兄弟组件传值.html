@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <xiongda></xiongda>
+        <xionger></xionger>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        var bus = new Vue();
+        Vue.component("xiongda",{
+            methods : {
+                sendmsg(){
+                    bus.$emit('resmsg',"光头强又来砍树了!")
+                }
+            },
+            created(){
+                bus.$on("moremsg",function(msg){
+                    console.log(msg);
+                })
+            },
+            template : `<div><h1>这是熊大</h1>
+            <button @click = "sendmsg">Get</button></div>`
+        })
+        Vue.component("xionger",{
+            created(){
+                bus.$on('resmsg',function(msg){
+                    console.log(msg);
+                    
+                })
+            },
+            template : `<div><h1>这是熊二</h1>
+            <button @click = "sendmsg2">Get</button></div>`,
+            methods : {
+                sendmsg2(){
+                    bus.$emit('moremsg',"俺来了!");
+                }
+            }
+        })
+        const app = new Vue({
+            el : '#app',
+            data : {
+                
+            }
+        })
+    </script>
+</body>
+</html>

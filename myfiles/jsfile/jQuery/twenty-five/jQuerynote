@@ -1,0 +1,77 @@
+停止动画: $(...).stop()
+判断/选取正在播放的动画元素
+
+
+jquery
+$(...).each(function(i,ele){})
+$().each()       $.each()
+$().index()
+
+笔试:  
+    $.each()  静态方法,直接定义在jquery的构造函数
+    $().each  实例方法,保存在jquery类型的原型对象中
+    2,支持的对象类型不同
+        $.each可以遍历任意数组和类数组对象使用
+        $().each只能被jquery的子对象调用
+添加自定义API
+how : jquery.fn.自定义方法 = function(){}
+this -> 将来调用该方法的jq对象
+}
+调用: $(...).自定义方法名
+
+
+插件:  
+what? 为库或者框架添加新功能的小程序
+why?  添加新功能或者重用功能
+when?  只要项目中出现相同的或者类似的功能都可以封装成插件反复使用
+官方插件:  
+    jQuery.UI:
+    先引入jquery.js,因为jQuery UI是基于jQuery开发的
+    再引入jQuery-ui.js
+    再编写自定义脚本
+
+效果: 
+    1.重写了animate方法,支持颜色动画
+    2.为简单的API添加了更多的动画效果
+    3.为addClass/removeClass/toggleClass添加了动画效果
+
+小部件: 
+ 拥有独立样式和行为的小功能
+ 1.引入jquery-ui.css 
+ 2.按插件的要求,编写HTML内容
+ 3.jquery和jqueryUI的js
+ 4.在自定义脚本中,调用插件函数
+ 原理: jquery插件函数做了: 
+    侵入:根据插件自己的需要,隐式添加属性和样式
+    优点: 简单   缺点: 不可维护
+
+自动完成:   
+  html:input
+  js:$(input).autocomplete({
+      source:本地数组/"xxx.php"
+  })
+
+
+  jquery VS bootstrap  
+  jquery ui : html   不需要添加任何属性
+        js ： 调用API ： 1，侵入： 自动在元素上添加class
+                        2，事件绑定
+        问题封装的太死了，不可维护
+        bootstrap： html   手动添加class    手动添加data-扩展属性
+                    js  查找所有的data-*的元素，绑定事件
+                    优点： 可定制  缺点：相比jquery ui稍微麻烦点
+
+
+第三方插件：  
+   文件上传 ：
+   html  form 
+   html:   <form method= "post" enctype= "multipart/form"></form> 
+   Ajax 
+      html : <form>  元素不需要天加属性
+      js  ; $.ajax({
+          type: "post",
+          url : "xxx.php",
+          data : new FormData($("#form")[0]),
+          contentType : false,
+          processData : false
+      })

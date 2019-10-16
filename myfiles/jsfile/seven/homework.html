@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: rgb(52, 141, 35);
+            text-align: center;
+            padding-top: 80px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div >
+    <input type="button" value="👍" id="id1" onclick="act()"><span>0</span>
+    <input type="button" value="踩 " id="id2" onclick="act2()"><span class="Span">100</span>
+</div>
+    <script>
+        function act(){
+        var value2 = document.querySelector("span");
+        /* if(value2.innerHTML % 10 == 0 && value2.innerHTML != 0){
+            alert("谢谢你的👍");
+        } */
+        ++value2.innerHTML;
+
+        }
+        function act2(){
+        var value2 = document.querySelector(".Span");
+        /* if(value2.innerHTML % 10 == 0 && value2.innerHTML != 100){
+            alert("兄嘚,你想干哈呢?");
+        } */
+        value2.innerHTML--;
+        }
+    </script>
+</body>
+</html>

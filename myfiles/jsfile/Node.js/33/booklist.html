@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,tr,td{
+            width: 500px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <table>
+            <thead><tr>
+                <td>bid</td>
+                <td>title</td>
+                <td>price</td>
+                <td>pubDate</td>
+                <td>DELETE</td>
+            </tr></thead>
+            <tbody class="box">
+                
+            </tbody>
+        </table>
+
+
+        <script src="./jquery-1.12.4.js"></script>
+        <script>
+            $(function(){
+                $.ajax({
+                    url : "/book",
+                    type : "get",
+                    success : function(result){
+                        console.log(result);
+                        var html = "";
+                        for(var key of result){
+                            html +=`<tr>
+                    <td>${key.bid}</td>
+                    <td>${key.title}</td>
+                    <td>${key.price}</td>
+                    <td>${key.pubDate}</td>
+                    <td><button onclick=del(${key.bid})>DELETE</button></td>
+                </tr>`
+
+                        }
+                        $(".box").html(html);
+                    }
+                })
+            })
+
+
+
+
+            function del(index){
+                // var index = bid;
+                $.ajax({
+                    url : "delete/book/"+index,
+                    type : "get",
+                    success : function(result){
+                        console.log("Year!");
+                        console.log(result);
+                        window.location.reload();
+                    }
+                })
+            }
+            
+            /* $("tbody").on("click","button",function(){
+                var index = $(this).attr("href");
+                var pname = $(this).parent().parent().children(":eq(1))").html
+                // var index = $(this).parent().parent().index()+1;
+                if(window.confirm(`是否删除$(pname)`)){
+                    $.ajax({
+                    url : "delete/book/index",
+                    type : "delete",
+                    data : {index : index},
+                    success : function(result){
+                        console.log("Year!");
+                        console.log(result);
+                        // window.location.reload();
+                    }
+                })
+                }else{
+
+                }
+                
+            }) */
+        </script>
+</body>
+</html>

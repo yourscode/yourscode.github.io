@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <table>
+        <thead>
+            <tr>
+                <td>用户名</td>
+                <td>邮编</td>
+                <td>手机号</td>
+                <td>性别</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <span id="box"></span>
+    <!-- <script src="comment.js"></script> -->
+    <script>
+        window.onload = function(){
+            var tbody= document.getElementsByName("tbody");
+            var xhr = new XMLHttpRequest();
+            var msg;
+            console.log(xhr);
+            xhr.open("GET","http://192.168.33.132:83/ajax/select-user.php",true);
+            xhr.send(null);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState ==4&&xhr.status==200){
+                    var result = xhr.responseText;
+                    msg = JSON.parse(result);
+                    // console.log(msg);
+                    var html = null;
+                    for(var key of msg){
+                    // console.log(key);
+                    for(var value=0 ; value < key.length; value++){
+                        html +=`<tr>
+                <td>${key[ename]}</td>
+            </tr>`;
+            tbody.innerHTML = html;
+                    }
+
+            }
+                }
+            }
+            
+
+        }
+    
+        </script>
+</body>
+</html>

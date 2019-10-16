@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        用户名<input type="text" name="uname" id=""><br>
+    </p>
+    <p>
+        密码<input type="password" name="pwd" id="">
+    </p>
+    <div id="show"></div>
+    <button id="btn">点我</button>
+    <script src="common.js"></script>
+    <script>
+        var xhr = createXhr();
+        btn.onclick =function(){
+        console.log(xhr);
+        xhr.open("get","http://192.168.33.132:83/ajax/1.php",true);
+        // xhr.open("GET","E:\myweb\ajax\demo/01check.php",true);
+        xhr.send(null);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                var result=responseText;
+                // xhr.send(null);
+                show.innerHTML = result;
+            }
+        }
+
+        }
+        
+
+
+                // show.innerHTML = result;
+    </script>
+</body>
+</html>

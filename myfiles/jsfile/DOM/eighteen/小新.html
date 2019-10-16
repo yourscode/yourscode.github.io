@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>在当前显示区范围内实现点不到的小方块</title>
+	<style>
+		div{position:fixed;width:200px;height:100%;
+			background:url(images/18s.jpg_temp.bmp) no-repeat;
+      background-size:100%;
+		}
+	</style>
+	
+ </head>
+ <body>
+	<div id="pop"></div>
+  <script>
+        /* var canMove = false;
+        pop.onmousedown = function(e){
+            canMove = true;
+            offsetX = e.offsetX;
+            offsetY = e.offsetY;
+            console.log(offsetX,offsetY);
+        }
+        document.body.onmousemove = function(e){
+            if(canMove){
+                var top = e.clientY - offsetY;
+                var left = e.clientX - offsetX;
+                pop.style.top = top+"px";
+                pop.style.left = left+"px";
+            }else{
+                canMove = false;
+            }
+        }
+        pop.onmouseup = function(){
+            // canMove = false;
+        } */
+
+
+        var canMove = false;
+        pop.onmousedown = function(e){
+            canMove = true;
+             offsetX = e.offsetX;
+             offsetY = e.offsetY;
+        }
+        document.body.onmousemove = function(e){
+            if(canMove){
+                var top = e.clientY - offsetY;
+                var left = e.clientX - offsetX;
+                pop.style.top = top+ "px";
+                pop.style.left = left + "px";
+        }else{
+            pop.style.top = e.offsetY;
+            pop.style.left = e.offsetX;
+        }
+        }
+        pop.onmouseup = function(){
+            canMove = false;
+        }
+	</script>
+ </body>
+</html>

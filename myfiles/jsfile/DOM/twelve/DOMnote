@@ -1,0 +1,109 @@
+如何: 浏览器在读取网页内容时候,会自动在内存中创建一个DOM树
+根节点: 一个网页中只有唯一一个根节点  :  document
+所有网页内容都包含在document对象下面
+节点对象: 网页中每项内容(元素,属性,文本)都是一个节点对象
+所有节点对象都是三个属性:
+    nodeType :节点类型:  用数字代表节点类型
+    何时: 只要判断节点类型
+    document:      9
+    element        1
+    attribute      2
+    text           3
+    问题: 无法进一步能区分标签名
+    nodeName : 节点名称
+    何时使用: 只要进一步判断节点名称的时候使用
+        返回的是字符串的名称
+    如果说是document      返回    #document
+            element     全大写标签名  BUTTON
+            attribute      属性名
+            text          #text
+    nodeValue : 节点值
+    何时:  几乎不用
+
+DOM 操作的固定套路
+    1.查找触发事件的元素
+    2.绑定事件
+    3.查找需要修改的元素
+    4.修改元素/添加/删除
+查找: 
+    无需查找可以直接获得的节点: 
+        document.documentElement     html
+        document.head                head
+        document.body                body
+        document.form[id/i]          <form>
+    按节点间的关系查找:
+        何时: 如果已经获得节点对象找周围的节点时
+        如何查找: 节点树包含所有节点对象(元素,文本...)的树结构
+        父子关系:  
+            elem.parentNode  :     获得elem的父节点
+            elem.childNodes   :     获得elem的所有直接子节点
+            elem.firstChild  :     获得elem的第一个直接子节点
+            elem.lastChild   :     获得elem的最后一个子节点
+
+        兄弟关系:
+            elem.previousSibling     :     前一个兄弟
+            elem.nextSibling         :     下一个兄弟
+            节点树会受到空字符的干扰
+    元素树: 
+                父子关系:  
+            elem.parentElement  :     获得elem的父节点
+            elem.children   :     获得elem的所有直接子节点
+            elem.firstElementChild  :     获得elem的第一个直接子节点
+            elem.lastElementChild   :     获得elem的最后一个子节点
+
+        兄弟关系:
+            elem.previousElementSibling     :     前一个兄弟
+            elem.nextElementSibling         :     下一个兄弟
+    说明元素树是节点树的子集,
+
+3,按HTML查
+       什么是：按元素的HTML特征查找元素
+       何时：只要暂时没有获得元素，需要进行首次获得时
+       如何：
+           1，按id查找：
+               var elem=document.getElementById("id");
+               强调：1，只能用document调用
+                       2，只返回一个元素
+           2,按标签名查找：
+               var elems=parent.getElementsByTagName("标签");
+               强调：1，可在任意父元素上调用
+                       2，返回当前父元素上所有符合条件的元素对象集合
+                       3，不仅查找直接子节点，且在所有后代中查找
+           3，按name属性查找：
+               var elems=document.getElementsByName("name");
+               强调：1，只能用document调用
+                       2，返回所有指定name名的元素的集合
+           4,按class属性查找：
+               var elems=parent.getElementsByClassName("class");
+               强调：1，可在任意父元素调用
+                       2，返回当前父元素上所有符合class名的元素对象集合
+                       3,不仅查找直接子节点，且在所有后代中查找
+                       4，不要求完全匹配，只要元素上有一个class名条件匹配即可
+    问题: 步骤太繁琐
+       用选择器查找:
+           如果只查找一个元素
+           var  elem  =parent.querySelector("选择器");
+           查找多个元素: 
+           var elem = parent.querySelectorAll("选择器");
+           强调: 可以在任意父元素上面调用,
+           返回非动态集合
+            什么是非动态集合:  实际存储属性值,即使反复访问集合也不会导致反复查找DOM树
+            优点: 即使反复访问也不会导致重复查找DOM树,
+            缺点: 首次查找慢
+            什么是动态集合,不实际存储属性值,每次访问集合都重复查找DOM树
+            缺点: 反复访问集合会导致重复查找DOM树
+
+            按HTML查找比选择器查找快很多
+
+按HTML查查找和按选择器查找如何选择???
+    特点: 按HTML查找查找返回动态集合,按选择器查找返回非动态集合
+        按HTML查找效率高,按选择器查找效率低
+        按HTML查找繁琐,按选择器查找极其简单
+
+        如何选择:  如果查找条件简单:  首选HTML查找
+                  如果查找条件复杂:  首选HTML查找
+
+    
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*         function calc(){
+            var arr = Array.prototype.slice.call(arguments,1);
+            var sub = arr.reduce(function(prev,elem){
+                return prev + elem;
+            })
+            console.log(arguments[0] + "的工资是" + sub);
+
+        }
+        calc("lilei",10000,10,20); */
+
+
+        function calc(li,...arr){
+            
+            var sub = arr.reduce(function(prev,elem){
+                    return prev + elem;
+            })
+            console.log(li+ "的工资是" + sub);
+            /* let sum = 0
+            for(let i = 0; i < arr.length ; i++){
+                    sum += arr[i]; 
+            }
+            console.log(li+ "的工资是" + sum);*/
+        } 
+        calc("lilei",10000,10,20);
+    </script>
+</body>
+</html>

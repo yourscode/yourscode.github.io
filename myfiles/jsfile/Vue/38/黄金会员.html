@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <input type="checkbox" v-model="message" >是否同意本站协议
+        <input type="button" :disabled="!message" value="Go For it">
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.component('cpn',{
+          template : '#cpn',
+          data(){
+            return {counter : 0}
+          },
+          
+        })
+      
+        const app = new Vue({
+          el : "#app",
+          data : {
+            message : '',
+            // false : false
+          }
+        })
+      </script>
+</body>
+</html>

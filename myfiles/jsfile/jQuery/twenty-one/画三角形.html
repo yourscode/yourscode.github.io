@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 0px;
+            height: 0px;
+            border-top: 10px solid red;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid transparent;
+        }
+
+
+        .left {
+            position: absolute;
+        }
+
+        .left:before,
+        .left:after {
+            position: absolute;
+            content: '';
+            border-top: 10px transparent dashed;
+            border-left: 10px transparent dashed;
+            border-bottom: 10px transparent dashed;
+            border-right: 10px #fff solid;
+        }
+
+        .left:before {
+            border-right: 10px #0099CC solid;
+        }
+
+        .left:after {
+            left: 1px;
+            /*覆盖并错开1px*/
+            border-right: 10px white solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="left"></div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 不停地从弹出框中输入员工的姓名,将所有员工的姓名保存在数组中,直到输入exit为止,在控制台打印数组中所有的元素
+
+        // function test(){
+        //     var name;
+        //     if(name != exit){
+        //         name = prompt("请输入员工姓名: ");
+        //         for(var i = 1 ; i < 10 ; i++){
+        //             var arr =[];
+        //             arr[i] = 
+        //         }
+        //     }
+        // }
+    
+    function printNum(){
+        var name = [];
+        while(true){
+            var n = prompt("请输入员工姓名: ");
+            if(n == "exit"){
+                break;
+            }
+            name[name.length] = n;
+        }
+        console.log(name);
+    }
+    </script>
+    <input type="button" value="shuru" onclick="printNum()">
+</body>
+</html>

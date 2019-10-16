@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>留言</td>
+            <td id="number">0</td>
+        </tr>
+        <tr>
+            <!-- //onkeyup="test()" -->
+            <td colspan="2px">
+                <textarea  id="feedback"  rows="6"></textarea>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        var area = document.querySelector("textarea");
+        area.onkeyup = function(){
+            console.log(this);
+        }
+        /*记住:  行内调用this指向window,script内调用this指向调用的这个*/
+    </script>
+</body>
+</html>

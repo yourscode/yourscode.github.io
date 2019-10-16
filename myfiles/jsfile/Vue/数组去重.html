@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一种方法
+        /* function unique(arr){
+            for(var i = 0; i<arr.length ; i++){
+                for(var j = i+1; j<arr.length ; j++){
+                    if(arr[i]==arr[j]){
+                        arr.splice(j,1);
+                    }
+                }
+            }
+            return arr;
+        }
+        var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
+        console.log(unique(arr)); */
+
+        /* function test(arr){
+            return new Set(arr);
+        }
+        var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
+        console.log(test(arr)); */
+
+        /* function test(arr){
+            var temp = [];
+            for(var i = 0 ; i < arr.length ; i++){
+                if(temp.indexOf(arr[i])==-1){
+                    temp.push(arr[i]);
+                }
+            }
+            return temp;
+        }
+
+        var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
+        console.log(test(arr)); */
+        
+        function sort(arr){
+             arr = arr.sort();
+            var array = [arr[0]];
+            for(var i = 1; i< arr.length ; i++){
+                if(arr[i]!==arr[i-1]){
+                    array.push(arr[i]);
+                }
+            } 
+            return array;
+        }
+        var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
+        console.log(sort(arr));
+         
+    </script>
+</body>
+</html>

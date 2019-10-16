@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .btn {
+      padding: 5px 10px;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      outline: none;
+    }
+    .up {
+      background: #fff;
+      color: #333;
+    }
+    .down {
+      background: #ddd;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn up">双态按钮</button>
+	
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $("button").click(function(){
+        // if($(this).hasClass("up")){
+        //   $(this).removeClass("up").addClass("down");
+        //   // $(this).addClass("down");
+        // }else{
+        //   $(this).removeClass("down").addClass("up");
+        //   // $(this).addClass("up");
+        // }
+
+        $(this).toggleClass("down");
+    })
+</script>
+</body>
+</html>

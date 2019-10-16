@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,tr,th,td{
+            width:500px;
+            text-align: center;
+            border:1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+                <tr>
+                        <th>编号</th>
+                        <th>书名</th>
+                        <th>价格</th>
+                        <th>出版日期</th>
+                        <th>操作</th>
+                    </tr>
+        </thead>
+        <tbody class="box">
+            
+        </tbody>
+    </table>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+ $(function(){
+    $.ajax({
+        url:"/book",
+        type:"get",
+        success:(result)=>{
+            var html="";
+            for(var key of result){
+                html+=`<tr>
+                <td>${key.bid}</td>
+                <td>${key.title}</td>
+                <td>${key.price}</td>
+                <td>${key.pubDate}</td>
+                <td><a href="${key.bid}" class="btn">del</a></td>
+            </tr>`;
+            }
+            $(".box").html(html);
+        }
+    })
+    $(".box").on("click","a.btn",function(){
+        var bid=$(this).attr("href");
+        var pname=$(this).parent().parent().children(":eq(1)").html();
+        if(window.confirm(`是否删除${pname}`)){
+            $.ajax({
+                url:"/book/:bid",
+                type:"delete",
+                data:{bid:bid},
+                success:(result)=>{
+                    if(result.code>0){
+                        alert(result.msg);
+                        location.reload();
+                    }else{
+                        alert(result.msg);
+                    }
+                }
+            })
+        }
+        
+    })
+ })
+</script>
+</html>

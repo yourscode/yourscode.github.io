@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/2.css"/>
+		
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+				</div>
+			</div>
+		</div>
+    <script>
+		d1.addEventListener("click",function(e){
+            alert(this.id);
+            e.stopPropagation();
+        })
+        d2.onclick = function(e){
+            alert(this.id);
+            e.stopPropagation();
+        }
+        d3.addEventListener("click",function(e){
+            alert(this.id);
+            e.stopPropagation();
+        })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+变量的声明用  $ 
+php的变量声明,变量名的规则: 由字母数字下划线组成,并且不可以使用数字开头,变量名对大小写是敏感的
+PHP中字符串的拼接是用   .   来拼接的    // echo '<div>编号为: '.$num.'</div>'
+单引号对于其中的变量当做普通的字符串来处理
+双引号对于其中的变量会把变量解析成变量值      
+所有PHP相关的代码都要写在    <?php ...... ?>   ...的里面
+echo的作用就是向界面当中输出字符串
+  js中处理字符串单引号与双引号的作用基本相同;只有json格式的数据必须使用双引号
+换行: echo '<br>';
+
+在php中函数名字不区分大小写
+http协议的常用请求方式 : (增删改查)
+    get: 用来从服务器获取数据(参数一般作为查询条件)
+    post: 用来添加数据
+    put: 用来修改数据
+    delete: 用来删除数据
+$_GET
+    http://localhost/php/page4-get.php?abc=1
+    $_GET['abc']得到了url地址中传递的参数的值
+    eg:
+        $f = $_GET['abc'];
+        if($f==1){
+            echo "得到参数";
+        }else{
+            echo "参数错误";
+        }
+form默认的请求方式是get请求会把表单数据作为url的参数
+    eg:
+        <?php
+        //设置服务器响应的文件类型
+        header("Content-Type: text/plain; charset = utf-8");
+            //这里根据表单中name属性获取值    //表单中 name = "username" 和 name = "password"
+            $uname = $_POST['username'];
+            $pwd = $_POST['password'];
+            if($uanme == "admin" && $pwd == "123"){
+                echo "登入成功";
+            }else{
+                echo "账号名或密码错误";
+            }
+        ?>

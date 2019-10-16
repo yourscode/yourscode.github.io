@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+         function bai(){
+            var promise  = new Promise(function(open,errHanlder){
+                console.log("白云起跑");
+                setTimeout(function(){
+                    var err  = Math.random() < 0.5;
+                    if(!err){
+                        console.log("白云到达终点!");
+                    open();
+                    }else{
+                        errHanlder("白云回家吃饭了");
+                    }
+                    
+                },3000)
+            })
+            return promise;
+        }
+
+        function jin(){
+            var promise  = new Promise(function(open,errHanlder){
+                console.log("静静起跑");
+                setTimeout(function(){
+                    var err = Math.random() < 0.5;
+                    if(!err){
+                        console.log("静静到达终点!");
+                        open();
+                    }else{
+                        // errHanlder("白云回家吃饭了");
+                        errHanlder("静静回家吃饭了");
+                    }
+                },3000)
+            })
+            return promise;
+        }
+
+        function ming(){
+            // var promise  = new Promise(function(open){
+                console.log("明明起跑");
+                setTimeout(function(){
+                    console.log("明明到达终点!");
+                    // open();
+                },3000)
+            }
+
+            bai().then(jin).then(ming).catch(function(msg){
+                console.error(msg);
+            }); 
+            // return promise;
+        // }
+        // bai().then(jin).then(ming); 
+
+
+
+
+        /*         function liao(){
+                console.log("廖廖起跑");
+                setTimeout(function(){
+                    console.log("廖廖到达终点!");
+                    ming();
+                },3000)
+            }
+
+        function ming(){
+                console.log("明明起跑");
+                setTimeout(function(){
+                    console.log("明明到达终点!");
+                },3000)
+            }
+
+            liao();
+
+
+ */
+
+    </script>
+</body>
+</html>

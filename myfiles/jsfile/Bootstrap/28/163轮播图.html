@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 670px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        .window{
+            height: 300px;
+            position: relative;
+        }
+        .window img{
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="window">
+            <img src="../27/img/ad1.jpg" alt="">
+            <img src="../27/img/ad2.jpg" alt="">
+            <img src="../27/img/ad3.jpg" alt="">
+        </div>
+    </div>
+    <script src="../bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+    <script>
+       setInterval(function(){
+       var imgs = $("img");
+           imgs.eq(2).stop().fadeOut(500,function(){
+               $(this).show().prependTo(".window");
+           })
+       },2000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register.do" method="GET">
+        姓名:
+        <input type="text" name="uname"><br>
+        密码:
+        <input type="password" name="upwd">
+        <input type="submit" value="提交" >
+    </form>
+
+   <!--  <script>
+        var xhr = createXhr();
+        btn.onclick =function(){
+        console.log(xhr);
+        xhr.open("get","http://localhost:3000/register.io",true);
+        // xhr.open("GET","E:\myweb\ajax\demo/01check.php",true);
+        xhr.send(null);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                var result=responseText;
+                // xhr.send(null);
+                show.innerHTML = result;
+            }
+        }
+
+        }
+                // show.innerHTML = result;
+    </script> -->
+</body>
+</html>

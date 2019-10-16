@@ -1,0 +1,61 @@
+2.js中绑定: 用赋值的方式绑定一个处理函数
+    elem.onclick = function(){}
+
+3.在js中绑定: 一个事件可以绑定多个处理函数,也可以随时移除
+    elem.addEventListener("事件名",function(){...})      //事件名是click/keyup/mouseover之类的,不需要加on
+    每个事件都是一个对象,其中包括事件的按钮和函数    所有监听按
+    当事件发生时,浏览器遍历集合中每个事件监听的对象,找到对应的处理函数执行
+    elem.removeEventListener("事件名",原处理函数)   //需要额外写函数并加上函数名,addEventListener() 的执行函数必须使用外部函数；
+    事件模型: 从事件发生到所有函数执行完,经过的过程
+*** 面试题: 
+    DOM标准: 3个事件
+        1.捕获: 由外向内,记录各级父元素上面绑定的处理函数
+        2.目标触发: 先触发目标函数上的事件
+        3.冒泡: 由内向外,按照捕获阶段的反向顺序,依次触发父元素上绑定的处理函数
+        所有浏览器开发者认为,点在内层元素上面相当于点在外层元素上面
+        事件对象:   
+        what: 专门保存事件信息,并提供操作事件的API
+        when? 只要获得事件相关信息,或要操作事件时
+        how? 
+        创建:  事件发生时自动创建
+        获得: 事件对象总是作为处理函数的第一个参数,默认传入
+        API 
+                1.取消冒号/停止蔓延
+                    e.stopPropagation();
+                2.利用冒泡
+                    优化: 尽量事件监听的个数
+                    为什么: 浏览器中所有事件监听都集中存储在一个大的集合中,使用遍历的方式查找要执行的处理函数 
+                    所以,事件监听对象的个数,直接影响了触发事件的效率
+                    只要多个平级子元素,同时绑定都要只在父元素上绑定一次,所有子元素都能触发
+                问题: 
+                获得实际触发事件的目标元素
+                this
+                e.target    //    e   是参数
+
+***错误处理: 
+                try{
+                    sc.innerHTML = eval(sc.innerHTML);  //可能出错的语句
+                    }  catch(err){
+                        sc.innerHTML = err;
+                    }
+
+                    鉴别目标元素是不是我们想要的
+                    3.取消事件的默认行为
+                        e.preventDefault();
+                        1.用a元素当按钮时,
+                        2.自定义表单提交时
+                        input button btn.onclick   form.submit()
+                        input submit  form.onsubmit()    e.preventDefault()
+                        3.HTML5 拖拽API
+                    4.鼠标位置: 
+                        相对于屏幕左上角的位置 : e.screenX,e.screenY
+                        相对于文档显示区左上角的位置: e.clientX,e.clientY
+                        相当于当前元素左上角的位置 : e.offsetX,e.offsetY
+                    界面滚动: 
+                        事件: window.onscroll = function(){
+                            //获得滚动的距离 
+                           var scrollTop = document.document.scrollTop || document.body.scrollTop
+                        }
+                        主动滚动：
+                        window.scrollTo(横向滚动的目标位置，纵向滚动的目标位置);
+                        window.scrollBy(横向滚动的增量，纵向滚动的增量);

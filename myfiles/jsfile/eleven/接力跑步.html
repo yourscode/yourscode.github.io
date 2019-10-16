@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     //   Promise.all([task1(),task2(),....]).then(function(){})
+
+
+         function bai(){
+            var promise  = new Promise(function(open){
+                console.log("白云起跑");
+                    var err  = Math.random();
+                setTimeout(function(){
+                        console.log("白云到达终点!");
+                        open();
+                },3000*err);
+        })
+            return promise;
+         }
+         function jin(){
+            var promise  = new Promise(function(open){
+                console.log("静静起跑");
+                    var err  = Math.random();
+                setTimeout(function(){
+                        console.log("静静到达终点!");
+                        open();
+                },3000*err);
+        })
+            return promise;
+         }
+
+         function ming(){
+            var promise  = new Promise(function(open){
+                console.log("明明起跑");
+                    var err  = Math.random();
+                setTimeout(function(){
+                        console.log("明明到达终点!");
+                        open();
+                },3000*err);
+        })
+            return promise;
+         }
+
+         Promise.all([bai(),jin(),ming()]).then(function(){console.log("结束")})
+            // return promise;
+        // }
+        // bai().then(jin).then(ming); 
+
+    </script>
+</body>
+</html>

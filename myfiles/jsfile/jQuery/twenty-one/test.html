@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,td{
+            border:1px solid #999;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>用户名</td>
+                <td>邮箱</td>
+                <td>手机</td>
+                <td>真实姓名</td>
+                <td>性别</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="show">
+            
+        </tbody>
+    </table>
+    <script src="ajax.js"></script>
+    <script>
+        ajax({
+            type:"get",
+            url:"http://192.168.33.132:83/ajax/delete.php",
+            data:"uid="+uid,
+
+        }).then(res=>{
+            xhr.onreadystatechange=function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                var res=xhr.responseText;
+                if(res=="1"){
+                    alert("删除成功");
+                    location.reload();
+                }else{
+                    alert("删除失败");
+                }
+            }
+        }
+        });
+    </script>
+</body>
+</html>

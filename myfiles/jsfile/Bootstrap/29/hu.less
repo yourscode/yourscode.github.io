@@ -1,0 +1,24 @@
+@jd-red : #e4393c;
+@thinBorder : 3px;
+@afOpacity: 0.6;
+@norBorderStyle:solid;
+.box5{
+    border: @thinBorder @norBorderStyle #999999;
+    // background: darken(@jd-red,50%);
+    background: lighten(@jd-red,20%);
+}
+.box{
+    .box5;
+    font-size: 20px;
+}
+.box6(@pd,@bd,@mt:30px){   //@mt有则是@mt没有则30px
+    padding: @pd;
+    border : @bd solid grey;
+    margin-top: @mt;
+}
+.alert1{
+    .box6(10px,20px);
+}
+
+
+

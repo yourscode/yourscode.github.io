@@ -1,0 +1,264 @@
+create table T_HU
+(
+  N_ID    NUMBER not null,
+  S_NAME  VARCHAR2(50) not null,
+  N_AGE   NUMBER not null,
+  S_CLASS VARCHAR2(50),
+  D_TIME  DATE
+)
+
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(1,'TOM',18,'大一');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(2,'MARRY',19,'大二');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(3,'JACK',20,'大三');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(4,'HELEN',21,'大四');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(5,'张三',22,'初一');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(6,'李四',23,'初二');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(7,'王五',24,'初三');
+insert into T_HU(N_ID,S_NAME,N_AGE,S_CLASS) VALUES(8,'赵六',25,'高一');
+
+
+视图: 
+create or replace view v_tp as
+select t."N_ID",t."S_NAME",t."S_CLS",t."N_AGE",tt.s_address,tt.s_phone from t_thing t,t_things tt where t.n_id=tt.n_tid order by t.n_id asc;
+
+create or replace view v_mergetable as
+select a."N_AGE",a."S_CLASS",a."D_TIME",b."N_ID",b."S_NAME"
+ from T_ZZ a,T_HU b where a.n_id=b.n_id
+order by a.n_id;
+
+
+指定值插入: insert into T_HU (N_ID,S_NAME,N_AGE,S_CLASS) VALUES(4,'HELEN',21,'大四');
+
+
+$.ajax({
+                // url: 'http://1.119.195.59:85/api/v1/Base/Get',
+                url: 'http://1.119.195.59:89/TrainCenter/api/v1/Base/Get',
+                contentType : "application/json",
+                data : JSON.stringify({
+                    "DataBase": "train",
+                    "DynamicTable": {
+                        "WorkType": "Get",
+                        "TableName": "ZZ",
+                        "Conditions": [
+                        {
+                "Property": "Id",
+                "Oper": "eq",
+                "Value": "1"
+            }
+                        ]
+                    }
+                }),
+                type :"POST",
+                headers: {Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5c2lkIjoiNTUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIwMDAxIiwidW5pcXVlX25hbWUiOiLnrqHnkIblkZgiLCJuYW1laWQiOiI2NiIsImdyb3Vwc2lkIjoiNjMwMTAwMDAwMDAwIiwiZ2l2ZW5fbmFtZSI6Iuilv-WugeW4guWFrOWuieWxgCIsInJvbGUiOiIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IjciLCJlbWFpbCI6Ind5dCIsImNlcnRzZXJpYWxudW1iZXIiOiJjZW50ZXIiLCJmYW1pbHlfbmFtZSI6IumFjee9rueuoeeQhuS4reW_gyIsImFjdG9ydCI6IndlYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwMTkvMTAvMTEgNDo1Mzo1OSIsIm5iZiI6MTU3MDc2NjAzOSwiZXhwIjoxNTcwNzY5NjM5LCJpYXQiOjE1NzA3NjYwMzksImlzcyI6Ind3dy5jcmV0cy5jb20uY24iLCJhdWQiOiJ3d3cuY3JldHMuY29tLmNuIn0.5gCfk-gBE1zZAhNEHmAJ2vfKxs-DC2ozxJDHumMuO1o'},
+                success : function(data){
+                    console.log(data);
+                    
+                }
+
+            })
+        })
+
+
+
+
+update T_XZ_CASEINFO
+
+set DEFAULTTIME = to_date(to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd hh24:mi:ss')
+
+alter table T_HU add  D_TIME DATE
+
+alter table T_HU modify D_TIME default sysdate;
+
+
+
+var html = "";
+            for(var key of res){
+                html += `<tr>
+            <td><input type="checkbox" class="psel"></td>
+            <td>${key.lid}</td>
+            <td>${key.title}</td>
+            <td>${key.os}</td>
+            <td>${key.price}</td>
+            <td>${key.spec}</td>
+            <td>${key.lname}</td>
+            <td>
+            <a href="${key.lid}" class = "btn_del">del</a>
+            <a href="${key.title}_${key.lid}" class = "btn_update">updete</a>
+            <a href="${key.lid}" class = "btn_list">list</a>
+            </td>
+        </tr>`
+            }
+            $("#tbody1").html(html);
+
+
+
+    <!-- 获取token -->
+    <script>
+        $(function () {
+            function getToken() {
+                var token = null;
+                $.ajax({
+                    url: 'http://1.119.195.59:89/TrainCenter/api/Authorize/refresh',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "Account": "0001",
+                        "BusinessId": "center",
+                        "BusinessName": "配置中心",
+                        "Terminal": "web",
+                        "Token": localStorage.getItem("token")
+                    }
+                    ),
+                    headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5c2lkIjoiNTUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIwMDAxIiwidW5pcXVlX25hbWUiOiLnrqHnkIblkZgiLCJuYW1laWQiOiI2NiIsImdyb3Vwc2lkIjoiNjMwMTAwMDAwMDAwIiwiZ2l2ZW5fbmFtZSI6Iuilv-WugeW4guWFrOWuieWxgCIsInJvbGUiOiIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IjciLCJlbWFpbCI6Ind5dCIsImNlcnRzZXJpYWxudW1iZXIiOiJjZW50ZXIiLCJmYW1pbHlfbmFtZSI6IumFjee9rueuoeeQhuS4reW_gyIsImFjdG9ydCI6IndlYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwMTkvMTAvMTIgMTM6NTg6MTciLCJuYmYiOjE1NzA4ODUwOTcsImV4cCI6MTU3MDg4ODY5NywiaWF0IjoxNTcwODg1MDk3LCJpc3MiOiJ3d3cuY3JldHMuY29tLmNuIiwiYXVkIjoid3d3LmNyZXRzLmNvbS5jbiJ9.kwEcIpVi9zyl_nJH9Gu72H1_5pBap8PLyA0aGrd9ng0' },
+                    type: "POST",
+                    success: function (data) {
+                        // console.log(data.Data.Token);
+                        token = data.Data.Token;
+                        localStorage.setItem("token", token);
+                        // console.log(localStorage.getItem("token"));
+
+                    }
+                });
+            }
+            getToken();
+            setInterval(function () {
+                getToken();
+            }, 60000 * 30);
+        })
+    </script>
+
+
+
+
+ 
+            var ml = "";
+            var page = 1;
+            var pageSize = 10;
+            var pageCount = JSON.parse(data.Data).total;
+            console.log(JSON.parse(data.Data).total);
+            
+            // 上一页
+            if(page-2>0){
+                ml += `<li><a href="${page-2}">${page-2}</a></li>`
+            }
+            // 上上一页
+            if(page-1>0){
+                ml += `<li><a href="${page-1}">${page-1}</a></li>`
+            }
+            //当前页
+            ml += `<li><a href="${page}">${page}</a></li>`
+            //下一页
+            if(page+1<=pageCount){
+                ml += `<li><a href="${page+1}">${page+1}</a></li>`
+            }
+             //下两页
+             if(page+1<=pageCount){
+                ml += `<li><a href="${page+2}">${page+2}</a></li>`
+            }
+            $("#pagination").html(ml);
+
+create replace procedure PRO_MHZ(pageIndex in int ,pageSize in int ,totalRow out int,cur_out out cursor)
+as
+begin
+       open cur_out for
+       select h.N_ID,h.S_NAME,z.N_AGE,z.S_CLASS from T_HU h, T_ZZ z where h.n_id=z.n_id 
+end;
+
+
+create or replace procedure PRO_SPRING_ADD(t_name in t_spring.s_name%type,t_sex in t_spring.s_sex%type,t_age in t_spring.n_age%type,t_address in t_wave.s_address%type,t_phone in t_wave.s_phone%type)
+as
+       t_id number;
+begin
+       select abs(mod(dbms_random.random,100)) into t_id from dual;
+       insert into t_spring values(t_id,t_name,t_sex,t_age);
+       insert into t_wave values(t_id,t_address,t_phone);
+end;
+
+
+create or replace procedure PRO_SPRING_SELECT(t_id in t_spring.n_id%type,spring_cursor out pk_spring.spring_cursor)
+as
+begin
+       open spring_cursor for
+       select s.n_id,s.s_name,s.s_sex,s.n_age,w.s_address,w.s_phone from t_spring s join t_wave w on s.n_id=w.n_id where s.n_id=t_id;
+end;
+
+
+
+
+
+
+
+
+
+select * from !!!! limit 0,5
+
+
+
+select rownum
+总数:   select count(1) from t_hu
+分页: select * from (
+select rownum r ,aa.* from(
+       select th.* from t_hu th order by th.n_id asc
+)aa where rownum<=pageSize
+) where r>=page*pageSize
+
+
+create or replace procedure PRO_MHZ( c_CurSor OUT SYSBASIC.cc_CURSOR)
+as
+begin
+       open  c_CurSor for select h.N_ID,h.S_NAME from T_HU h;
+end;
+
+存储过程分页:
+create or replace procedure PRO_MHZP(pageIndex in number,pageSize in number,totalRow out number,c_CurSor OUT SYSBASIC.cc_cursor)
+as 
+
+v_begin number:= pageIndex*pageSize; --开始记录
+v_end number:=(pageIndex-1)*pageSize;         --结束记录
+begin 
+      open c_CurSor for
+      SELECT * FROM   
+(  
+      SELECT temp.*, ROWNUM RN  FROM (select h.N_ID,h.S_NAME,z.N_AGE,z.S_CLASS from T_HU h, T_ZZ z where h.n_id=z.n_id ) temp  
+      WHERE ROWNUM <='|| v_begin ||'
+)  
+WHERE RN >= '|| v_end;
+
+select count(*) from t_hu into '||totalRow;
+
+end;
+
+添加totalRow
+create or replace procedure PRO_MHZP(pageIndex in number,pageSize in number,totalRow out number, c_CurSor OUT SYSBASIC.cc_cursor)
+as
+v_totalRow varchar2(2000);
+v_begin number:= pageIndex*pageSize; --开始记录
+v_end number:=(pageIndex-1)*pageSize+1;         --结束记录
+begin
+      open c_CurSor for
+      SELECT * FROM (
+      SELECT temp.*, ROWNUM RN  FROM (select h.N_ID,h.S_NAME,z.N_AGE,z.S_CLASS from T_HU h, T_ZZ z where h.n_id=z.n_id ) temp
+      WHERE ROWNUM <=v_begin ) WHERE RN >=v_end;
+
+      v_totalRow :='select count(*) from  T_HU h, T_ZZ z where h.n_id=z.n_id';
+      execute immediate v_totalRow into totalRow;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

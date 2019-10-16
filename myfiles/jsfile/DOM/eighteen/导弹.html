@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            /* display: flex; */
+            margin: 0 auto;
+        }
+        button{
+            width: 200px;
+            height: 30px;
+            background-color: #dd1111;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <button id="btn1">shoot</button>
+    <button id="btn2">获得跟踪导弹</button>
+    <button id="btn3">失去跟踪导弹</button>
+</div>
+    <script>
+        btn1.addEventListener("click", function(){
+            console.log("发送普通子弹...");
+        })
+        function test(){
+                console.log("发送跟踪导弹==>");
+            }
+        btn2.addEventListener("click",function(){
+            alert("获得跟踪导弹");
+            btn1.addEventListener("click",test)
+        })
+        btn3.addEventListener("click",function(){
+            btn1.removeEventListener("click",test)
+        })
+    </script>
+</body>
+</html>

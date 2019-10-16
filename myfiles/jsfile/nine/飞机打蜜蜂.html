@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Ferly(fname,speed){
+            this.fname = fname;
+            this.speed = speed;
+        }
+        Ferly.prototype.fly = function(){
+            console.log(this.fname + "以时速" + this.speed + "飞行");
+        }
+        function plan(fname,speed,score){
+            Ferly.call(this,fname,speed);
+            this.score = score;
+        }
+        plan.prototype.getscore = function(){
+            console.log("击落" + this.fname + "获得" + this.score);
+        }
+        function Bee(fname,speed,award){
+            Ferly.call(this,fname,speed);
+            this.award = award;
+        }
+        Bee.prototype.getaward = function(){
+            console.log(this.fname + "被击落" + "获得" + this.award);
+        }
+        Object.setPrototypeOf(Bee.prototype,Ferly.prototype);
+        Object.setPrototypeOf(plan.prototype,Ferly.prototype);
+        var f7 = new plan("f7",100,10);
+        f7.fly();
+        f7.getscore();
+        var bbe = new Bee("小黄蜂",10000,20);
+        bbe.fly();
+        bbe.getaward();
+    </script>
+</body>
+</html>

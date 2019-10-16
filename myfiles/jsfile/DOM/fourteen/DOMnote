@@ -1,0 +1,58 @@
+修改属性:
+    1.HTML的标准属性
+        核心DOM: 兼容解构话文档的DOM API
+        elem.getAttribute("属性名");
+        elem.getAttribute("属性名","属性值");
+        elem.hasAttribute("属性名");
+        elem.removeAttribute("属性名");
+    优点: 几乎万能,   缺点: 繁琐
+    2.HTML DOM专门针对HTML网页的简化版API
+    已经将所有标准属性定义了elem元素对象内,可以使用  .   访问
+    elem.属性名
+    elem.属性名 = 属性值;
+    elem.属性名 != "";
+    elem.属性名 = ""
+
+三大状态属性: disabled  checked   selected
+   不能用核心DOM 操作,因为因为都是Boolean类型,可以直接使用  .  访问
+   自定义扩展属性: 
+    什么是: HTML 标准中未定义的,开发人员根据 需要,自行添加的属性
+       何时: 只要访问元素时,同时需要获得该元素对应的业务数据时,都会提前将业务数据保存在当前的元素上面
+       如何: 
+        1.核心: DOM 访问
+        2.用HTML5新方式
+        定义时: HTML中: <ANY data-属性名 = "值"></ANY>
+            访问时: elem.dataset.属性名
+            dataset可以自动收集所有  data-  开头的自定义扩展属性 
+    样式: 内联样式: 
+    修改: elem.style.css属性 = "值";
+    强调: 如果是长度单位值,需要单位 px
+        如果是z-index,需要驼峰   //zIndex
+    问题: 每次只能修改一个css属性
+    解决:  将多个css属性封装在class中,用class批量
+    2.如何获取一个元素的完整样式
+    获取计算后的样式: 最终应用一个元素上的完整样式
+    何时: 是要 获得任意元素上的样式时,都要用计算后的样式
+    如何: var style = getComputedStyle(elem);
+            style.css属性
+    强调: 计算属性只能获取不能修改,因为来源不确定,影响范围不确定
+    修改样式表中的共享样式: 
+    1.获得样式表中对象: 网页中的每一个样式表都是一个对象
+    var sheet = document.styleSheets[i];
+    2.获得样式表对象中的规则: cssRule;
+        什么是cssRule  = sheet.cssRule[i];
+    3.如何获得cssRule 中的css属性,
+        var value = cssRule.style.css属性
+        修改规则中的css属性;  cssRule.style.css属性  = 值;
+添加/删除
+    添加: 3步
+    1.创建空元素
+    var elem = document.createElement("标签名");
+    var elem = document.createElement("a");   =>  <a></a>
+    添加上必要的属性: 
+        a.href = url;
+        a.innerHTML = 文本  
+    3.将新元素添加到指定父元素下面: 
+        parent.appendChild(elem);   将新元素elem追加到parent的所有子元素之后
+        parent.insertBefore(elem,child);  将新元素插入到parent下现有的child之前
+        parent.replaceChild(elem,child);  用新元素elem代替parent下现有child元素

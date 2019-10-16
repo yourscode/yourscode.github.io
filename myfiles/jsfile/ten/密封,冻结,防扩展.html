@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        var obj = {
+            name : "hzh",
+            age : 22,
+            class : 1607,
+            
+        }
+        // Object.preventExtensions(obj);
+        // Object.seal(obj);
+        Object.freeze(obj);
+
+        // obj.pro = "jd";
+        // delete obj.age;
+
+        obj.age = 12;
+        console.log(obj);
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点击" id="btn">
+    <button id="btn1">click me(0)</button>
+    <button id="btn2">click me(0)</button>
+    <button id="btn3">click me(0)</button>
+    <script src="./jQuery/jquery-1.12.4.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+    <script>
+        // var $btn = $("#btn");
+        // console.log($btn);
+        /* $("#btn").click(function(){
+            $(this).val="疼";
+            alert("疼");
+        }) */
+        /* btn1.onclick = function(){
+            var value = 0;
+            return function(){
+                value++;
+                this.innerHTML=`click me(${value})`;
+            }
+        } */
+
+        /*var $btn = $("#btn1");
+
+         (()=>{
+            var n=0;
+            $btn.click(function(){
+                n++;
+                this.innerHTML=`click me(${n})`;
+            })
+        })(); */
+
+        var $btns = $("button");
+        for(var btn of $btns){
+            var n=0;
+            console.log($btn);
+            btn.click(function(){
+                var html=$btn.html();
+                var n= parseInt(html.slice(9,-1));
+                n++;
+                $(this).html(`click me(${n})`);
+                // this.innerHTML=`click me(${n})`;
+            })
+        }
+    </script>
+</body>
+</html>

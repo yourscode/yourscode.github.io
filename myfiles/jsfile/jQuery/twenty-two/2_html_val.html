@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/1.jpg" alt="1">
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var al = null;
+        $("img").click(function(){
+             al = $("img").attr("alt");
+            al++;
+            // console.log(al);
+            if(al<5){
+                $("img").attr({"src":`./images/${al}.jpg`,"alt":al});
+                // $("img").attr("alt",al);
+            }else{
+                al = 1;
+                $("img").attr("src",`./images/${al}.jpg`);
+                $("img").attr("alt",al);
+            }
+            // console.log(va);
+        })
+    </script>
+</body>
+</html>

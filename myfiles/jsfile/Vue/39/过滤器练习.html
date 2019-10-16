@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div>{{msg | my-filter(false)}}</div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+            Vue.filter('my-filter',function(value,arg){
+                if(value==0){
+                    if(arg){
+                        return "男"
+                    }else{
+                        return "boy"
+                    }
+                }else{
+                    if(arg){
+                        return "女"
+                    }else{
+                        return 'girl'
+                    }
+                }
+            })
+
+        const app  = new Vue({
+            el : '#app',
+            data : {
+                msg : 1
+            }
+        })
+    </script>
+</body>
+</html>

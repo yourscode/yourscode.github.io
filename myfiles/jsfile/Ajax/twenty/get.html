@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+
+           
+        
+    <p>
+        用户名:     <input type="text" name="uname" id="username">
+    </p>
+    <p>
+        密码:     <input type="password" name="upwd" id="password">
+    </p>
+    <input type="submit" value="dianji" id="btn">
+    <div id="password1"></div>
+    </div>
+    <script src="comment.js"></script>
+    <script>
+        $("password1").innerHTML = test;
+        btn.onclick = function(){
+            var value1 = document.getElementById("username").value;
+            var value2 = document.getElementById("password").value;
+        var xhr = new XMLHttpRequest();
+        var value = "username="+value1+"&password="+value2;
+        // xhr.open("GET","http://192.168.33.132:83/ajax/01-http.php?"+value,true);
+        xhr.open("POST","http://192.168.33.132:83/ajax/01-http.php",true);
+        // xhr.send(null);
+        xhr.send(value);
+        xhr.setRequestHeader("Content-Type",application/x-www-form-urlencode);
+        xhr.onreadystatechange = function(){
+            if(xhr.readystate ==4&&xhr.status =="200"){
+                var result = xhr.responseText;
+                // console.log(result);
+                // document.getElementById("box").innerHTML = result;
+            }
+        }
+        }
+    </script>
+</body>
+</html>

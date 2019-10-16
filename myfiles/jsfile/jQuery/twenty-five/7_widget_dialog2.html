@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Dialog</h1>
+	<h3>弹出式对话框</h3>
+	<a href="#">我要登录</a>
+
+	<div id="dialog-login" title="用户登录">
+		<form action="">
+			用户名：<input type="text"><br>
+			密码名：<input type="password"><br>
+		</form>
+	</div>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		$("a").click(function(e){
+			e.preventDefault();
+			$("#dialog-login").dialog("open");
+		})
+		$("#dialog-login").dialog({
+			autoOpen:false,
+			show:{effect:"blind",duration:1000},
+			hide:{effect:"explode",duration:1000},
+			modal:true,
+			buttons:{
+				"登录"(){
+					alert("登录成功");
+					$("#dialog-login").dialog("close");
+				},
+				"取消"(){
+					$("#dialog-login").dialog("close");
+				}
+			},
+			colse(){$("#dialog-login>form")[0].reset()}
+		});
+	</script>
+ </body>
+</html>

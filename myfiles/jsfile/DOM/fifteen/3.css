@@ -1,0 +1,40 @@
+table{width:700px}
+/*��Ԫ���µĵ�1������n�������һ��td��Ԫ��*/
+td:first-child{width:70px}
+/*IE��֧��nth-child*/
+td:nth-child(2){width:200px}
+/*IE*/
+td:first-child+td{width:200px}
+/*IE��֧��--���Կ��ܿ���������
+td:last-child{width:340px}*/
+td span{color:red}
+
+.vali_info{/* ҳ���ʼ����֤��Ϣ����ʾ */
+	display:none;
+}
+.txt_focus{/*���ı����ý���ʱ����*/
+	border-top:2px solid black;
+	border-left:2px solid black;
+}/*���ı���ʧȥ����ʱ����*/
+
+.vali_success,.vali_fail{
+	background-repeat:no-repeat;
+  background-position:left center;
+	display:block;
+}
+/* ��֤��Ϣ����֤ͨ��ʱ����ʽ */
+.vali_success{
+    background-image:url("./images/ok.png");
+	padding-left:20px;
+	width:0px;height:20px;
+	overflow:hidden;
+}
+/* ��֤��Ϣ����֤ʧ��ʱ����ʽ */
+.vali_fail{
+    background-image:url("../images/err.png");
+    border:1px solid red;
+    background-color:#ddd;
+    color:Red;
+    padding-left:30px;
+}
+

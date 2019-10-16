@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x0 = 250, y0 = 50;
+        // var x1 = 350, y1 = 150;
+        var x1 = 350, y1 = 150;
+
+        var d_y = y1 - y0;   //对边
+        var  d_x = x1 - x0;  //临边
+        var r = d_y/d_x;
+        // value = Math.atan(r);
+        // console.log(value); 
+        console.log(Math.atan2(d_y,d_x));
+    </script>
+</body>
+</html>

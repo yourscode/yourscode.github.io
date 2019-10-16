@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 练习: 定义一个函数,打印乘法口诀表中的任意一行
+    <script> 
+    var num = Number(prompt("请输入一个数字: "));
+    function koujue(){  
+        for(var i = num ; i <= 9 ; i++){
+            console.log(i);
+            for(var j = 1 ; j <= 9 ; j++){
+                console.log(i+"*"+j +"="+i*j);
+            }
+            break;
+        }
+    } 
+    </script>
+    <input type="button" value="计算" onclick="koujue()"> -->
+
+    <script>
+        function jicheng(line){
+            var pri ="";
+            for(var i= 1; i <= line ; i++){
+                var msg = i+ "*"+ line + "=" + (i*line);
+                pri+=msg+"\t";
+            }
+                console.log(pri);
+        }
+    </script>
+    <input type="button" value="计算" onclick="jicheng(5)">
+</body>
+</html>

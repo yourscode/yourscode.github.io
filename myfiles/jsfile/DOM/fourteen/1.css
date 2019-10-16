@@ -1,0 +1,19 @@
+li{
+	list-style:none;
+}
+li span{
+	padding-left: 20px;
+	cursor: pointer;
+    background: url("./images/add.png") no-repeat center left;
+}
+li ul{/*默认样式*/
+/*	display:none;*/
+	height:0;
+	overflow:hidden;
+	transition: all .5s linear;
+}
+.open{ background: url("./images/minus.png") no-repeat center left; }
+.open+ul{ /*显示时*/
+/*	display: block; */
+	height:110px;
+}

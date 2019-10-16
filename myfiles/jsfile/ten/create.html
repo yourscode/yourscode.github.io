@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var father = {
+            sal : 100000,
+            car : "兰博基尼"
+        }
+        var lilei = Object.create(father);
+        console.log(lilei);
+        var hmm = Object.create(father,{
+            iphone:{
+                value : "sansum",
+                writable: true,
+                enumerable: true,
+                configurable: true
+            },
+            bao:{
+                value: "LV",
+                writable: true,
+                enumerable : true,
+                configurable: true,
+            }
+
+        })
+        console.log(hmm);
+        console.log(hmm.car);
+    </script>
+</body>
+</html>

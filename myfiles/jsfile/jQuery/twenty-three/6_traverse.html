@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>...</title>
+  <script>
+  </script>
+ </head>
+  
+ <body>
+<!--    ul.top>(li.parent>ul>li.child*3)*2 -->
+   <ul class="top">
+   	<li class="parent1">parent1
+   		<ul>
+   			<li class="child">child1</li>
+   			<li class="child">child2</li>
+   			<li class="child">child3</li>
+   		</ul>
+   	</li>
+   	<li class="parent2">parent2
+   		<ul>
+   			<li class="child">child1</li>
+   			<li class="child">child2</li>
+   			<li class="child">child3</li>
+   		</ul>
+   	</li>
+   </ul>
+   <script src="jquery-1.12.4.js"></script>
+	 <script>
+		// 修改class为top的ul的所有直接子元素
+		// $(".top").children().css("backgroundColor","red");
+		// 修改class为top的ul的所有后代li
+		// $(".top").find("li").css("border","1px solid red");
+		// 为class为child的li绑定单击事件
+		// $(".child").click(function(){
+		// 	$(this).css("border","2px solid red");
+		// })
+		// 选择当前元素的下一个元素/前一个元素/之前所有/之后所有/除自己之外所有
+		// $(".child").click(function(){
+		// 	$(this).next().css("border","2px solid red");
+		// })
+			
+		// $(".child").click(function(){
+		// 	$(this).prev().css("border","2px solid red");
+		// })
+
+		// $(".child").click(function(){
+		// 	$(this).prevAll().css("border","2px solid red");
+		// })
+
+		// $(".child").click(function(){
+		// 	$(this).nextAll().css("border","2px solid red");
+		// })
+
+		$(".child").click(function(){
+			$(this).siblings().css("border","2px solid red");
+		})
+	 </script>		
+ </body>
+</html>

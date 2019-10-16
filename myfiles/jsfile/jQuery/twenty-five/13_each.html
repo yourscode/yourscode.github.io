@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+  </style>
+</head>
+<body>
+
+<ul id="list">
+  <li>98</li>
+  <li>85</li>
+  <li>33</li>
+  <li>99</li>
+  <li>52</li>
+</ul>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+  //请给每个不足60分的成绩+10分，并将超过90分的成绩用绿色背景标识出来
+  /* $("#list").children().each(function(index,element){
+    if(element.html<60){
+      $(this).html
+    }
+  }) */
+
+  $("#list>li").each(function(i,ele){
+    var num = parseInt($(ele).html());
+    if(num<60){
+      num += 10;
+      $(this).html(num);
+    }else if(num>80){
+      $(this).css({
+        "backgroundColor":"blue"})
+    }
+  })
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span>{{user.uid}}</span>
+        <span>{{user.uname}}</span>
+        <span>{{user.upwd}}</span>
+
+        <ul>
+            <li v-for="item in userList">{{item}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+    const app = new Vue({
+        el : "#app",
+        data : {
+            message : "hello",
+            user : {
+                uid : "001",
+                uname : "张三",
+                upwd : "123456"
+            },
+            userList : [
+            {uid : "001",uname : "张三",upwd : "123"},
+            {uid : "002",uname : "李四",upwd : "1234"},
+            {uid : "003",uname : "张三",upwd : "12345"},
+            ]
+        }
+    })
+    </script>
+</body>
+</html>

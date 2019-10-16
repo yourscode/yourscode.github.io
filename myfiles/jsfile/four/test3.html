@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "http//:baidu.com/73633/img/logo.png";
+        var str1 = str.lastIndexOf("/");
+        var jie1 = str.slice(str1 + 1,str.length);
+        var str2 = str.lastIndexOf(".");
+        var jie2 = str.slice(str2 + 1,str.length);
+        console.log(jie1);
+        console.log(jie2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+	<form>
+		用户名:<input name="uname">
+					<span id="uname-msg"></span><br>
+		密码:<input type="password" name="upwd">
+					<span id="upwd-msg"></span><br>
+		<input type="submit" value="提交注册信息">
+	</form>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		/* $("form").submit(function(e){
+			//正确时，使用图片:"<img src='img/ok.png'>"
+			var long =$("input[name=uname]").val().length;
+			if(long>3&&long<9){
+				$("#uname-msg").html("<img src='images/ok.png'>");
+			}else{
+			//姓名错误时: "<img src='img/err.png'>用户名必须介于3~9位之间!"
+				$("uname-msg").html()
+			}
+			//密码错误时: "<img src='img/err.png'>密码必须介于6~8位之间!"
+			//阻止默认行为: e.preventDefault();
+			e.preventDefault();
+			//表单提交: $(form).submit();
+		}) */
+
+
+    
+	$("form").submit(function(e){
+		var uname = $("[name=uname]").val();
+		var upwd  = $(":password").val();
+		if(uname.length<3||uname.length>9){
+			$("#uname-msg").html(`<img src='images/err.png'>用户名必须介于3~9位之间!`);
+			e.preventDefault();
+		}else{
+			$("#uname-msg").html(`<img src='images/ok.png'>`);
+			if(upwd.length<6||upwd.length>8){
+				$("#upwd-msg").html(`<img src='images/err.png'>密码必须介于6~8位之间!`);
+				e.preventDefault();
+			}else{
+				$("#upwd-msg").html(`<img src='images/ok.png'>`);
+			}
+		}
+	})
+		
+	</script>
+ </body>
+</html>
