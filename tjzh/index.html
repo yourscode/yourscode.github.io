@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>应急指挥调度系统</title><link rel=stylesheet href=http://1.119.195.59:89/arcgis_js_api/library/4.10/esri/css/main.css><style>#app {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      pointer-events: none;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+
+    .esri-ui-top-left {
+      display: none !important;
+    }
+
+    .esri-component {
+      display: none !important;
+    }</style><link href=./static/css/app.bf8d4b79c045c90c0a39e0f92a3ef54a.css rel=stylesheet></head><body><div id=map></div><div id=app></div><script src=http://1.119.195.59:89/arcgis_js_api/library/4.12/dojo/dojo.js></script><script src=./static/arcgismap/api.min.js></script><script>mapLoaded({
+      container: "map",
+      proxyRule: [{
+        urlPrefix: "http://1.119.195.59:7080/",
+        proxyUrl: "http://1.119.195.59:89/arcgisproxy/proxy.ashx"
+      }],
+      baseLayerUrl: {
+        varlayer: "http://1.119.195.59:7080/PBS/rest/services/TjMapService/MapServer",
+        imglayer: "",
+        varimglayer: ""
+      },
+      center: [117.2009, 39.2343],
+      zoom: {
+        default: 14,
+        minZoom: 8,
+        maxZoom: 16
+      }
+    });</script><script type=text/javascript src=./static/js/manifest.ff60f80b0db976861911.js></script><script type=text/javascript src=./static/js/vendor.632a8ad54803dcb53535.js></script><script type=text/javascript src=./static/js/app.a97bf26f454d7e5ef785.js></script></body></html>
