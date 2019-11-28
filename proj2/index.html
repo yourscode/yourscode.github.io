@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./test.css">
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <div class="outer">
+        <div class="header">
+            <div class="header_inner">
+                <div class="inner_left">
+                    <div class="tobottom">
+                        <p>
+                            <span>
+                                <i><img src="./images/形状20.png" alt=""></i>
+                                降水量 : 423mm</span>
+                            <span>
+                                <i><img src="./images/湿度.png" alt=""></i>
+                                温度 : 80%</span>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="inner_center">
+                    <div class="tobottom">
+                        <span>天津应急指挥调度平台</span>
+                    </div>
+                </div>
+                <div class="inner_right">
+                    <div class="tobottom">
+                        <p>
+                            <span>
+                                <i><img src="./images/晴.png" alt=""></i>
+                                晴天 25 ~ 30</span>
+                            <span>
+                                <i><img src="./images/形状27.png" alt=""></i>
+                                4 ~ 6级西北风</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="left_content">
+                    <div class="left_one">
+                        <div class="title">
+                            <span>城市安全指数及事件总数</span>
+                        </div>
+                        <div class="left_onec">
+                            <div class="ball">
+                                <div id="ball"
+                                    style="width: 100%; height: 100%; left: 0px; background-color: transparent;">
+                                </div>
+                            </div>
+
+                            <div class="incident">
+                                <div class="incil">
+                                    <p>未处理事件</p>
+                                    <span><i>107</i>件</span>
+                                </div>
+                                <div class="incil">
+                                    <p>事件总数</p>
+                                    <span><i>637</i>件</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="left_two">
+                        <div class="title">
+                            <span>风险诱导</span>
+                        </div>
+                        <div class="left_twoc">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>诱因类型</th>
+                                        <th>时间</th>
+                                        <th>地点</th>
+                                        <th>关键设备物</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>危化品运输</td>
+                                        <td>2019.09.01</td>
+                                        <td>园区仓库</td>
+                                        <td>硫酸存储罐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>危化品运输</td>
+                                        <td>2019.09.01</td>
+                                        <td>园区仓库</td>
+                                        <td>硫酸存储罐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>危化品运输</td>
+                                        <td>2019.09.01</td>
+                                        <td>园区仓库</td>
+                                        <td>硫酸存储罐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>危化品运输</td>
+                                        <td>2019.09.01</td>
+                                        <td>园区仓库</td>
+                                        <td>硫酸存储罐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>危化品运输</td>
+                                        <td>2019.09.01</td>
+                                        <td>园区仓库</td>
+                                        <td>硫酸存储罐</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="left_three">
+                        <div class="title">
+                            <span>区域预警</span>
+                        </div>
+                        <div class="left_threec">
+                            <div id="map" style="width: 100%; height: 100%; left: 0px; background-color: #091437;">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ring -->
+                    <div class="left_four">
+                        <div class="title">
+                            <span>舆情监控</span>
+                        </div>
+                        <div class="left_fourc">
+                            <div id="ring" style="width: 100%; height: 100%; left: 0px; background-color: #091437;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="center">
+                <div class="center_content">
+                    <div class="center_one">
+                        <!-- bar -->
+                        <div class="center_one_inner1">
+                            <div class="title">
+                                <span>消防事件分析</span>
+                            </div>
+                            <div class="center_twoc">
+                                <div id="bar" style="width: 100%; height: 130%; top: -20%;"></div>
+                            </div>
+                        </div>
+                        <!-- line -->
+                        <div class="center_one_inner2">
+                            <div class="title">
+                                <span>安全生产分析</span>
+                            </div>
+                            <div class="center_twoc">
+                                <div id="line" style="width: 100%; height: 130%; top: -20%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center_two">
+                        <div class="title">
+                            <span>当日预警信息</span>
+                            <img src="./images/jiantou.png" alt="">
+                        </div>
+                        <div class="center_twoc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right_content">
+                    <div class="right_one">
+                        <div class="title">
+                            <span>自然灾害分析</span>
+                        </div>
+                        <div class="right_onec">
+                            <div class="detail">
+                                <div class="de_inner">
+                                    <div class="to">12<span>条</span></div>
+                                    <div class="bo">预警数</div>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <div class="de_inner">
+                                    <div class="to">10<span>条</span></div>
+                                    <div class="bo">今日数</div>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <div class="de_inner">
+                                    <div class="to">15<span>条</span></div>
+                                    <div class="bo">近三年同比</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_two">
+                        <div class="title">
+                            <span>风险预警</span>
+                        </div>
+                        <div class="right_twoc"></div>
+                    </div>
+                    <div class="right_three">
+                        <div class="title">
+                            <span>重点场所信息</span>
+                        </div>
+                        <div class="right_threec">
+                            <div class="left">
+                                <div class="left_left _left">
+                                    <img src="./images/火灾.png" alt="">
+                                </div>
+                                <div class="left_right _right">
+                                    <div class="left_right_top _right_top">消防重点</div>
+                                    <div class="left_right_bottom _right_bottom">1560所</div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="right_left _left">
+                                    <img src="./images/危化品ico.png" alt="">
+                                </div>
+                                <div class="right_right _right">
+                                    <div class="right_right_top _right_top">危险品场所</div>
+                                    <div class="right_right_bottom _right_bottom">1560所</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_four">
+                        <div class="title">
+                            <span>应急资源管理</span>
+                            <img src="./images/jiantou.png" alt="">
+                        </div>
+                        <div class="right_fourc">
+                            <div class="item">
+                                <div class="picture">
+                                    <img src="./images/单位.png" alt="">
+                                </div>
+                                <div class="substance">
+                                    <div class="top">物资企业</div>
+                                    <div class="between">70/70</div>
+                                    <div class="bottom">可用/总数</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="picture">
+                                    <img src="./images/仓库.png" alt="">
+                                </div>
+                                <div class="substance">
+                                    <div class="top">物资存储库</div>
+                                    <div class="between">70/70</div>
+                                    <div class="bottom">可用/总数</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="picture">
+                                    <img src="./images/矩形755.png" alt="">
+                                </div>
+                                <div class="substance">
+                                    <div class="top">应急装备</div>
+                                    <div class="between">70/70</div>
+                                    <div class="bottom">可用/总数</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="picture">
+                                    <img src="./images/人员.png" alt="">
+                                </div>
+                                <div class="substance">
+                                    <div class="top">队伍</div>
+                                    <div class="between">70/70</div>
+                                    <div class="bottom">可用/总数</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="picture">
+                                    <img src="./images/专家(2).png" alt="">
+                                </div>
+                                <div class="substance">
+                                    <div class="top">专家</div>
+                                    <div class="between">70/70</div>
+                                    <div class="bottom">可用/总数</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="picture">
+                                    <img src="./images/紧急避难所.png" alt="">
+                                </div>
+                                <div class="substance">
+                                    <div class="top">避难场所</div>
+                                    <div class="between">70/70</div>
+                                    <div class="bottom">可用/总数</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 导入echarts -->
+    <script src="./js/echarts.js"></script>
+    <!-- ring -->
+    <script>
+        var myChart_ring = echarts.init(document.getElementById("ring"));
+        var option_ring = {
+            title: {
+                show: false
+            },
+            tooltip: {
+                trigger: "item",
+                formatter: "{b} :  {d}%"  //a(系列名称) b(数据项名称) c(数值) d(饼图:百分比 | 雷达图: 指标名称)
+            },
+            color: ["#0076ff", "#00e3ff", "#ffff28"],
+            legend: {
+                show: false,
+                orient: "vertical",
+                left: "left",
+                data: ["中性", "负面", "正面"]
+            },
+
+            calculable: true,
+            series: [
+                {
+                    name: "访问来源",
+                    type: "pie",
+                    radius: ["45%", "65%"],  //半径,支持绝对值(px)和百分比 min(width,height)/2*75% 传数组实现环形图 [内半径,外半径]
+                    center: ["50%", "50%"],  //圆心坐标,支持绝对值和百分比 min(width,height)*50%
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                formatter: "{b}:  {d}%",
+                                color: "#999"
+                            },
+                            shadowColor: '#0076ff',
+                            shadowBlur: 30,
+                            borderWidth: 5,
+                        },
+                    },
+                    hoverAnimation: false,
+                    // clockwise: false,
+                    data: [
+                        {
+                            value: 30,
+                            name: "负面",
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: true,
+                                        formatter: "{b}:  {d}%",
+                                        color: "#999"
+                                    },
+                                    shadowColor: '#0076ff',
+                                    shadowBlur: 30,
+                                    borderWidth: 5,
+                                    borderColor: "rgba(0,0,0,0)"
+                                    // shadowOffsetX: 15,
+                                    // shadowOffsetY: 15,
+                                },
+                            },
+                        },
+                        {
+                            value: 15,
+                            name: "中性",
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: true,
+                                        formatter: "{b}:  {d}%",
+                                        color: "#999"
+                                    },
+                                    shadowColor: '#00e3ff',
+                                    shadowBlur: 30,
+                                    // shadowOffsetX: 15,
+                                    // shadowOffsetY: 15,
+                                    borderWidth: 5,
+                                    borderColor: "rgba(0,0,0,0)"
+                                },
+                            },
+                        },
+                        {
+                            value: 55,
+                            name: "正面",
+                            // selected: true
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: true,
+                                        formatter: "{b}:  {d}%",
+                                        color: "#ffffff"
+                                    },
+                                    shadowColor: 'gold',
+                                    shadowBlur: 30,
+                                    // shadowOffsetX: 15,
+                                    // shadowOffsetY: 15,
+                                    borderWidth: 5,
+                                    borderColor: "rgba(0,0,0,0)"
+                                },
+                            },
+                        }
+                    ]
+                }
+            ]
+        };
+        myChart_ring.setOption(option_ring);
+
+    </script>
+    <!-- bar -->
+    <script>
+        var myChart_bar = echarts.init(document.getElementById("bar"));
+        option_bar = {
+            // backgroundColor: '#000',
+            legend: {
+                data: [{
+                    name: ['a', 'b'],
+                }]
+            },
+            xAxis: [{
+                data: ['和平', '河西', '河北', '河东', '南开', '红桥', '东丽', '西青', '津南', '北辰', '武清', '宝坻', '滨海', '宁河', '静海'],
+                axisLabel: {
+                    rotate: 0,
+                    color: "#fff",
+                    formatter: (params) => {
+                        var list = params.split("");
+                        str = `${list[0]}\n${list[1]}`;
+                        return `${str}`;
+                    },
+                },
+            }],
+            yAxis: [{
+                scale: true,
+                // max: 250,
+                axisLabel: {
+                    show: false
+                }
+
+            }],
+            tooltip: {
+                trigger: "axis"
+            },
+            series: [{
+                name: 'a',
+                type: 'bar',
+                barWidth: 15,
+                itemStyle: {
+                    // barBorderRadius: 10,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: "cyan"
+                    },
+                    {
+                        offset: 1,
+                        color: "#666"
+                    }
+                    ])
+                },
+                data: [232, 158, 202, 112, 152, 258, 192, 268, 150, 252, 168, 212, 200, 134, 178]
+            },
+            {
+                name: "b",
+                type: "line",
+                data: [282, 208, 252, 162, 202, 308, 242, 318, 200, 302, 218, 262, 250, 184, 238]
+            }
+            ]
+        };
+        myChart_bar.setOption(option_bar);
+    </script>
+
+    <!-- line -->
+    <script>
+        var myChart_line = echarts.init(document.getElementById("line"));
+        var option_line = {
+            title: {
+                show: false,
+            },
+            tooltip: {
+                trigger: "axis"
+            },
+            lengend: {
+                data: ["预警", "实际", "历史"]
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: true,
+                    axisLabel: {
+                        color: "#fff",
+                    },
+                    data: ["建筑建设", "矿场企业", "房屋商业", "载客运输", "旅游景点", "危化品"]
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        show: false
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '预警',
+                    type: "line",
+                    smooth: true,
+                    data: function () {
+                        var list = [];
+                        for (var i = 1; i <= 30; i++) {
+                            list.push(Math.round(Math.random() * 30));
+                        }
+                        console.log(list);
+                        return list;
+                    }()
+                },
+                {
+                    name: '实际',
+                    type: 'line',
+                    smooth: true,
+                    data: function () {
+                        var list = [];
+                        for (var i = 1; i <= 30; i++) {
+                            list.push(Math.round(Math.random() * 30));
+                        }
+                        console.log(list);
+                        return list;
+                    }()
+                },
+                {
+                    name: '预警',
+                    type: 'line',
+                    smooth: true,
+                    data: function () {
+                        var list = [];
+                        for (var i = 1; i <= 30; i++) {
+                            list.push(Math.round(Math.random() * 30));
+                        }
+                        console.log(list);
+                        return list;
+                    }()
+                }
+            ]
+        };
+        myChart_line.setOption(option_line);
+
+    </script>
+
+    <!-- map -->
+    <script src="./js/echarts.js"></script>
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <!-- <script src="./map/china.js"></script> -->
+    <script src="./map/js/tianjin.js"></script>
+    <script>
+
+        var geoCoordMap = { //这里放你打点的坐标信息，虚拟信息
+            '宁河区': [116.97413, 38.947512],
+            '宝坻区': [122.121804, 37.524054],
+            '武清区': [117.982412, 37.392056],
+            '滨海新区': [118.364156, 35.119965],
+            '淄博市': [118.069799, 36.82475],
+            '日照市': [119.532384, 35.425496],
+            '烟台市': [121.454902, 37.480081],
+            '菏泽市': [115.48038, 35.248354],
+
+            '宁河区': [117.826625, 39.329858],
+            '静海区': [116.97413, 38.947512],
+            '滨海新区': [117.710496, 39.00366],
+            '津南区': [117.35726, 38.937928],
+            '宝坻区': [117.309863, 39.717379],
+            '泰安市': [117.826625, 39.329858],
+            '枣庄市': [117.329308, 34.824652],
+            '济宁市': [116.588817, 35.433025]
+        };
+        var locValue = [
+            { name: "宁河区", value: "100" },
+            { name: "宝坻区", value: "50" },
+            { name: "武清区", value: "20" },
+            { name: "滨海新区", value: "90" },
+            { name: "淄博市", value: "170" },
+            { name: "日照市", value: "190" },
+            { name: "德州市", value: "160" },
+            { name: "烟台市", value: "140" },
+            { name: "菏泽市", value: "130" },
+
+            { name: "宁河区", value: "110" },
+            // {name:"静海区",value:"105"},
+            { name: "滨海新区", value: "142" },
+            { name: "津南区", value: "80" },
+            // {name:"宝坻区",value:"184"},
+            { name: "泰安市", value: "155" },
+            { name: "枣庄市", value: "130" },
+            { name: "济宁市", value: "140" }
+        ];
+
+        var geoCoordMap1 = { //这里放你打点的坐标信息，虚拟信息
+            '宁河区': [116.97413, 38.947512],
+            '宝坻区': [122.121804, 37.524054],
+            '武清区': [117.982412, 37.392056],
+            '滨海新区': [118.364156, 35.119965],
+            '淄博市': [118.069799, 36.82475],
+            '日照市': [119.532384, 35.425496],
+            '烟台市': [121.454902, 37.480081],
+            '菏泽市': [115.48038, 35.248354],
+
+            // '宁河区':[117.826625,39.329858],
+            // '静海区':[117.309863,39.717379],
+            // '滨海新区':[117.710496,39.00366],
+            // '津南区':[117.35726,38.937928],
+            '宝坻区': [117.309863, 39.717379],
+            // '泰安市':[117.826625,39.329858],
+            '枣庄市': [117.329308, 34.824652],
+            '济宁市': [116.588817, 35.433025]
+        };
+        var locValue1 = [
+            { name: "宁河区", value: "100" },
+            { name: "宝坻区", value: "50" },
+            { name: "武清区", value: "20" },
+            { name: "滨海新区", value: "90" },
+            { name: "淄博市", value: "170" },
+            { name: "日照市", value: "190" },
+            { name: "德州市", value: "160" },
+            { name: "烟台市", value: "140" },
+            { name: "菏泽市", value: "130" },
+
+            { name: "宁河区", value: "110" },
+            { name: "静海区", value: "175" },
+            { name: "滨海新区", value: "142" },
+            { name: "津南区", value: "80" },
+            { name: "宝坻区", value: "184" },
+            { name: "泰安市", value: "155" },
+            { name: "枣庄市", value: "130" },
+            { name: "济宁市", value: "140" }
+        ];
+
+
+        var convertData = function (geoCoordMap, data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value)
+                    });
+                }
+            }
+            console.log(res);
+
+            return res;
+        };
+
+
+        var myChart_map = echarts.init(document.getElementById("map"));
+        var option_map = {
+            legend: {
+                show: false,
+                data: [
+                    {
+                        name: "a"
+                    }
+                ]
+            },
+            geo: {
+                show: true,
+                type: 'map',
+                map: '天津',
+                mapType: 'tianjin',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true,
+                        color: "#FFF"
+                    }
+                },
+                zoom: 1.2,
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: "#024a6d",
+                        borderColor: '#3fdaff',
+                        borderWidth: 1,
+                        // shadowColor: 'rgba(63, 218, 255, 0.5)',
+                        // shadowBlur: 30
+                    },
+                    emphasis: {
+                        areaColor: '#3d61a6',
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'map',
+                    // map: '天津',
+                    // mapType: 'tianjin',
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            arwaColor: "#024a6d",
+                            // color: "yellow",
+                            borderColor: "#18ecf4",
+                            borderWidth: 1
+                        },
+                        emphasis: {
+                            arwaColor: "#3d61a6",
+                        }
+                    }
+                },
+                { //没有visualMap的情况，同颜色大小标识不同的等级
+                    name: 'a',
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    data: convertData(geoCoordMap, locValue).slice(8, 12),
+                    symbolSize: function (val) {
+                        return val[2] / 10;
+                    },
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            // color: '#ddb926'
+                            color: '#ffff28'
+                        }
+                    }
+                },
+                { //没有visualMap的情况，同颜色大小标识不同的等级
+                    name: 'b',
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    data: convertData(geoCoordMap1, locValue1).slice(8, 12),
+                    symbolSize: function (val) {
+                        return val[2] / 10;
+                    },
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            // color: '#ddb926'
+                            color: 'red'
+                        }
+                    }
+                }
+
+
+            ]
+        }
+        myChart_map.setOption(option_map);
+ 
+    </script>
+
+    <!-- ball -->
+    <script src="./js/echarts.js"></script>
+    <script src="./js/echarts-liquidfill.js"></script>
+    <script>
+        var myChart_ball = echarts.init(document.getElementById("ball"));
+        var option_ball = {
+            series: [
+                {
+                    type: 'liquidFill',
+                    data: [0.6],
+                    label: {
+                        // position: ['38%', '40%'],
+                        // formatter: function () {
+                        //     return 'ECharts\nLiquid Fill';
+                        // },
+                        fontSize: 12,
+                        color: '#666'
+                    },
+                    backgroundStyle: {
+                        // borderColor: '#156ACF',
+                        // borderWidth: 1,
+                        shadowColor: 'rgba(0, 0, 0, 0.4)',
+                        shadowBlur: 20
+                    },
+                    zoom: 1.2,
+                    color: ["#18ecf4"],
+                    outline: {
+                        borderDistance: 0,
+                        itemStyle: {
+                            borderWidth: 1,
+                            borderColor: '#156ACF',
+                            shadowBlur: 20,
+                            shadowColor: 'rgba(255, 0, 0, 1)'
+                        }
+                    }
+                }
+            ]
+        }
+
+        myChart_ball.setOption(option_ball);
+        
+    </script>
+
+
+<script type="text/javascript">
+    window.onload = function () { setRem(); };
+    window.onresize = function () { 
+        setRem();
+        myChart_ball.resize();
+        // myChart_ring.resize();
+        // myChart_bar.resize();
+        // myChart_line.resize();
+        myChart_map.resize();
+        location.reload();
+         };
+    /*设置字体rem*/
+    function setRem() {
+        /*获取当前页面的宽度*/
+        var width = document.body.offsetWidth;
+        console.log(width);
+        /*设置页面的字体大小*/
+        var nowFont = width / 375 * 20;
+        console.log(nowFont);
+        /*通过标签名称来获取元素*/
+        var htmlFont = document.getElementsByTagName('html')[0];
+        // 给获取到的元素的字体大小赋值
+        htmlFont.style.fontSize = nowFont + "px";
+    }
+</script>
+</body>
+
+</html>
