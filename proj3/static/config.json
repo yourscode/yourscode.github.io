@@ -1,0 +1,50 @@
+{
+  "visual": {
+    "baseUrl": "http://123.59.120.193:8088",
+    "visualAddressValue": "可视化交互系统对外接口地址 POST",
+    "reportedEvent": "/rhgz/event/eventEmergencePlan",
+    "reportedEventValue": "上报事件关联预案接口地址",
+    "eventProcessCommand": "/rhgz/event/eventProcessCommand",
+    "eventProcessCommandValue": "上报事件处置指令",
+    "eventResourceAllocate": "/rhgz/event/eventResourceAllocate",
+    "eventResourceAllocateValue": "上报事件当前资源调配情况",
+    "eventRescueTeamLocation": "/rhgz/event/eventRescueTeamLocation",
+    "eventRescueTeamLocationValue": "上报事件关联救援队伍实时信息--多次推送",
+    "eventRescueCar": "/rhgz/event/eventRescueCar",
+    "eventRescueCarValue": "上报事件关联救援车辆-多次推送",
+    "eventProcessReport": "/rhgz/event/eventProcessReport",
+    "eventProcessReportValue": "上报事件处理状态(指挥结束)",
+    "eventProcessCommandReplay": "/rhgz/event/eventProcessCommandReplay",
+    "eventProcessCommandReplayValue": "上报事件处置指令反馈—多次推送"
+  },
+  "resource": {
+    "baseUrl": "http://123.59.213.142:9999",
+    "baseUrlValue": "资源对外开放接口地址",
+    "getGisReSourceUrl": "/gisReSource/queryList",
+    "getGisReSourceUrlValue": "gis获取周边资源",
+    "queryListDict": "/resExpert/queryListDict",
+    "queryListDictValue": "查询专家",
+    "queryResGoods": "/resGoods/queryListDict",
+    "queryResGoodsValue": "应急物资查询",
+    "queryTeam": "/resTeam/queryListDict",
+    "queryTeamValue": "查询队伍",
+    "queryDepot": "/resGoodsStore/queryListDict",
+    "queryDepotValue": "查询仓库"
+  },
+  "scheme": {
+    "baseUrl": "http://123.59.213.142:19090",
+    "baseUrlValue": "请求预案接口地址",
+    "getTissue": "/scheme/getNodeIfo",
+    "getTissueValue": "根据预案查询组织机构",
+    "getTeam": "/scheme/teamDutyVos",
+    "getTeamValue": "查询救援队伍",
+    "getExpert": "/scheme/specialVos",
+    "getExpertValue": "查询专家",
+    "getSchemeList": "/scheme/list",
+    "getSchemeListValue": "查询预案"
+  },
+  "Map": {
+    "MapPlan":"http://123.59.213.69:8080/webframe/biz/httpproxy/httpproxy.jsp?url=http://123.59.213.69:8081/geoesb/proxy/effaf09422c043f49b4f488f6f922420/886e60bb7e014f22a707de23e6f6505d/findpath.json?&points={startPoint}%3B{endPoint}%3B&weightname=Length",
+    "MapPlanValue": "路径规划接口地址"
+  }
+}
